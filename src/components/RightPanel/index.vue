@@ -29,7 +29,8 @@ export default {
   },
   data() {
     return {
-      show: false
+      show: false,
+      mouseTop: 0
     }
   },
   computed: {

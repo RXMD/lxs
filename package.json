@@ -5,7 +5,7 @@
   "author": "Pan <panfree23@gmail.com>",
   "scripts": {
     "dev": "vue-cli-service serve",
-    "lint": "eslint --ext .js,.vue src",
+    "lint": "eslint --fix --ext .js,.vue src",
     "build:prod": "vue-cli-service build",
     "build:stage": "vue-cli-service build --mode staging",
     "preview": "node build/index.js --preview",
@@ -15,6 +15,7 @@
     "test:ci": "npm run lint && npm run test:unit"
   },
   "dependencies": {
+    "@microsoft/signalr": "^8.0.0",
     "axios": "0.18.1",
     "clipboard": "2.0.4",
     "codemirror": "5.45.0",
@@ -93,17 +94,17 @@
     "management-system"
   ],
   "license": "MIT",
-  "lint-staged": {
-    "src/**/*.{js,vue}": [
-      "eslint --fix",
-      "git add"
-    ]
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
+  // "lint-staged": {
+  //   "src/**/*.{js,vue}": [
+  //     "eslint --fix",
+  //     "git add"
+  //   ]
+  // },
+  // "husky": {
+  //   "hooks": {
+  //     "pre-commit": "lint-staged"
+  //   }
+  // },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/PanJiaChen/vue-element-admin.git"

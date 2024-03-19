@@ -2,10 +2,15 @@ import axios from 'axios'
 import { MessageBox, Message } from 'element-ui'
 import store from '@/store'
 import { getToken } from '@/utils/auth'
-
+const jz = 'https://192.168.1.114:7105'
+let gw = 'http://192.168.1.54:5139'
+const ya = 'http://192.168.1.59:5139'
+const http = 'http://192.168.1.157:6299'
+gw = 'http://192.168.1.55:5205'
 // create an axios instance
 const service = axios.create({
-  baseURL: process.env.VUE_APP_BASE_API, // url = base url + request url
+  baseURL: jz, // url = base url + request url
+  // baseURL: process.env.VUE_APP_BASE_API,
   // withCredentials: true, // send cookies when cross-domain requests
   timeout: 5000 // request timeout
 })
@@ -14,18 +19,17 @@ const service = axios.create({
 service.interceptors.request.use(
   config => {
     // do something before request is sent
-
     if (store.getters.token) {
       // let each request carry token
       // ['X-Token'] is a custom headers key
       // please modify it according to the actual situation
-      config.headers['X-Token'] = getToken()
+      config.headers['Authorization'] = getToken() ? `Bearer ${getToken()}` : ''
     }
     return config
   },
   error => {
     // do something with request error
-    console.log(error) // for debug
+    console.log(error, 'oppppppppppppppppp') // for debug
     return Promise.reject(error)
   }
 )
@@ -46,9 +50,9 @@ service.interceptors.response.use(
     const res = response.data
 
     // if the custom code is not 20000, it is judged as an error.
-    if (res.code !== 20000) {
+    if (res.code !== 200) {
       Message({
-        message: res.message || 'Error',
+        message: res.msg || '请求出错，请重试！',
         type: 'error',
         duration: 5 * 1000
       })

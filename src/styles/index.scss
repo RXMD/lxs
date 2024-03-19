@@ -4,6 +4,8 @@
 @import './element-ui.scss';
 @import './sidebar.scss';
 @import './btn.scss';
+@import './common.scss';
+@import './theme.scss';
 
 body {
   height: 100%;
@@ -173,11 +175,14 @@ aside {
 
 .filter-container {
   padding-bottom: 10px;
+  padding-top: 10px;
+  display: flex;
+  align-items: center;
 
   .filter-item {
     display: inline-block;
     vertical-align: middle;
-    margin-bottom: 10px;
+    margin-left: 15px;
   }
 }
 

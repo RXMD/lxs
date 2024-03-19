@@ -3,12 +3,14 @@
     <el-form ref="loginForm" :model="loginForm" :rules="loginRules" class="login-form" autocomplete="on" label-position="left">
 
       <div class="title-container">
-        <h3 class="title">Login Form</h3>
+        <h3 class="title">欢 迎 登 录</h3>
       </div>
 
       <el-form-item prop="username">
         <span class="svg-container">
           <svg-icon icon-class="user" />
+          <span style="margin-left: 8px;">账号</span>
+          <span style="margin-left: 6px; color: #E1E1E1;">|</span>
         </span>
         <el-input
           ref="username"
@@ -25,6 +27,8 @@
         <el-form-item prop="password">
           <span class="svg-container">
             <svg-icon icon-class="password" />
+            <span style="margin-left: 8px;">密码</span>
+            <span style="margin-left: 6px; color: #E1E1E1;">|</span>
           </span>
           <el-input
             :key="passwordType"
@@ -45,9 +49,9 @@
         </el-form-item>
       </el-tooltip>
 
-      <el-button :loading="loading" type="primary" style="width:100%;margin-bottom:30px;" @click.native.prevent="handleLogin">Login</el-button>
+      <el-button :loading="loading" type="warning" style="width:100%;margin-bottom:30px;height: 48px;" @click.native.prevent="handleLogin">登录</el-button>
 
-      <div style="position:relative">
+      <div v-if="false" style="position:relative">
         <div class="tips">
           <span>Username : admin</span>
           <span>Password : any</span>
@@ -82,23 +86,23 @@ export default {
   components: { SocialSign },
   data() {
     const validateUsername = (rule, value, callback) => {
-      if (!validUsername(value)) {
-        callback(new Error('Please enter the correct user name'))
+      if (!value) {
+        callback(new Error('请输入用户名'))
       } else {
         callback()
       }
     }
     const validatePassword = (rule, value, callback) => {
-      if (value.length < 6) {
-        callback(new Error('The password can not be less than 6 digits'))
+      if (!value) {
+        callback(new Error('请输入密码！'))
       } else {
         callback()
       }
     }
     return {
       loginForm: {
-        username: 'admin',
-        password: '111111'
+        username: 'yeao',
+        password: '123456'
       },
       loginRules: {
         username: [{ required: true, trigger: 'blur', validator: validateUsername }],
@@ -158,7 +162,9 @@ export default {
           this.loading = true
           this.$store.dispatch('user/login', this.loginForm)
             .then(() => {
-              this.$router.push({ path: this.redirect || '/', query: this.otherQuery })
+              this.$message.success('登陆成功！')
+              // this.$router.push({ path: this.redirect || '/', query: this.otherQuery })
+              this.$router.push({ path: '/', query: this.otherQuery })
               this.loading = false
             })
             .catch(() => {
@@ -204,13 +210,13 @@ export default {
 /* 修复input 背景不协调 和光标变色 */
 /* Detail see https://github.com/PanJiaChen/vue-element-admin/pull/927 */
 
-$bg:#283443;
+$bg:#fff;
 $light_gray:#fff;
 $cursor: #fff;
 
 @supports (-webkit-mask: none) and (not (cater-color: $cursor)) {
   .login-container .el-input input {
-    color: $cursor;
+    // color: $cursor;
   }
 }
 
@@ -219,28 +225,28 @@ $cursor: #fff;
   .el-input {
     display: inline-block;
     height: 47px;
-    width: 85%;
+    width: 80%;
 
     input {
       background: transparent;
       border: 0px;
       -webkit-appearance: none;
       border-radius: 0px;
-      padding: 12px 5px 12px 15px;
-      color: $light_gray;
+      padding: 12px 5px 12px 2px;
+      // color: $light_gray;
       height: 47px;
-      caret-color: $cursor;
+      // caret-color: $cursor;
 
       &:-webkit-autofill {
         box-shadow: 0 0 0px 1000px $bg inset !important;
-        -webkit-text-fill-color: $cursor !important;
+        -webkit-text-fill-color: black !important;
       }
     }
   }
 
   .el-form-item {
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    background: rgba(0, 0, 0, 0.1);
+    border: 1px solid #DBDBDB;
+    // background: rgba(0, 0, 0, 0.1);
     border-radius: 5px;
     color: #454545;
   }
@@ -253,18 +259,31 @@ $dark_gray:#889aa4;
 $light_gray:#eee;
 
 .login-container {
+  display: flex;
+  align-items: center;
   min-height: 100%;
   width: 100%;
   background-color: $bg;
+  background-image: url(../../assets/image/lgbi.png);
+  background-size:100% 100%;
+  background-repeat:no-repeat;
   overflow: hidden;
 
   .login-form {
     position: relative;
     width: 520px;
     max-width: 100%;
-    padding: 160px 35px 0;
+    padding: 20px 35px;
     margin: 0 auto;
-    overflow: hidden;
+    overflow: hidden;;
+    // background: linear-gradient(to bottom, #07439B, #001638);
+    // border-radius: 8px;
+    // box-shadow: 0px 2px 12px 10px rgba(255, 255, 255, 0.1);
+    background: #fff;
+    border-radius: 16px;
+    .el-form-item__content {
+      background: #fff;
+    }
   }
 
   .tips {
@@ -283,17 +302,18 @@ $light_gray:#eee;
     padding: 6px 5px 6px 15px;
     color: $dark_gray;
     vertical-align: middle;
-    width: 30px;
+    width: 82px;
     display: inline-block;
+    color: #373737;
   }
 
   .title-container {
     position: relative;
 
     .title {
-      font-size: 26px;
-      color: $light_gray;
-      margin: 0px auto 40px auto;
+      font-size: 32px;
+      color: #242424;;
+      margin: 20px auto 20px auto;
       text-align: center;
       font-weight: bold;
     }

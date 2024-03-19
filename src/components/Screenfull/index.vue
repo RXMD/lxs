@@ -1,6 +1,7 @@
 <template>
   <div>
     <svg-icon :icon-class="isFullscreen?'exit-fullscreen':'fullscreen'" @click="click" />
+    <svg-icon icon-class="email" class="email" @click="gochat" />
   </div>
 </template>
 
@@ -21,6 +22,10 @@ export default {
     this.destroy()
   },
   methods: {
+    gochat() {
+      const routeData = this.$router.resolve({ name: 'chat' })
+      window.open(routeData.href, '_blank')
+    },
     click() {
       if (!screenfull.enabled) {
         this.$message({
@@ -49,6 +54,11 @@ export default {
 </script>
 
 <style scoped>
+.email {
+  margin-left:16px;
+  height: 18px;
+  width: 18px;
+}
 .screenfull-svg {
   display: inline-block;
   cursor: pointer;

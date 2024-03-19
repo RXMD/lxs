@@ -12,32 +12,6 @@ import chartsRouter from './modules/charts'
 import tableRouter from './modules/table'
 import nestedRouter from './modules/nested'
 
-/**
- * Note: sub-menu only appear when route children.length >= 1
- * Detail see: https://panjiachen.github.io/vue-element-admin-site/guide/essentials/router-and-nav.html
- *
- * hidden: true                   if set true, item will not show in the sidebar(default is false)
- * alwaysShow: true               if set true, will always show the root menu
- *                                if not set alwaysShow, when item has more than one children route,
- *                                it will becomes nested mode, otherwise not show the root menu
- * redirect: noRedirect           if set noRedirect will no redirect in the breadcrumb
- * name:'router-name'             the name is used by <keep-alive> (must set!!!)
- * meta : {
-    roles: ['admin','editor']    control the page roles (you can set multiple roles)
-    title: 'title'               the name show in sidebar and breadcrumb (recommend set)
-    icon: 'svg-name'/'el-icon-x' the icon show in the sidebar
-    noCache: true                if set true, the page will no be cached(default is false)
-    affix: true                  if set true, the tag will affix in the tags-view
-    breadcrumb: false            if set false, the item will hidden in breadcrumb(default is true)
-    activeMenu: '/example/list'  if set path, the sidebar will highlight the path you set
-  }
- */
-
-/**
- * constantRoutes
- * a base page that does not have permission requirements
- * all roles can be accessed
- */
 export const constantRoutes = [
   {
     path: '/redirect',
@@ -66,6 +40,12 @@ export const constantRoutes = [
     hidden: true
   },
   {
+    path: '/chat',
+    name: 'chat',
+    hidden: true,
+    component: () => import('@/views/chat/index')
+  },
+  {
     path: '/401',
     component: () => import('@/views/error-page/401'),
     hidden: true
@@ -86,6 +66,7 @@ export const constantRoutes = [
   {
     path: '/documentation',
     component: Layout,
+    hidden: true,
     children: [
       {
         path: 'index',
@@ -99,6 +80,7 @@ export const constantRoutes = [
     path: '/guide',
     component: Layout,
     redirect: '/guide/index',
+    hidden: true,
     children: [
       {
         path: 'index',
@@ -129,6 +111,192 @@ export const constantRoutes = [
  * the routes that need to be dynamically loaded based on user roles
  */
 export const asyncRoutes = [
+  {
+    path: '/configuration',
+    component: Layout,
+    redirect: '/configuration/index',
+    name: 'configuration',
+    meta: { title: '报价管理', icon: 'el-icon-s-help' },
+    redirect: 'noRedirect',
+    menuCode: '1000',
+    children: [
+      {
+        path: '/projectEdit',
+        name: '项目设置',
+        redirect: 'noRedirect',
+        meta: { title: '项目设置', icon: 'el-icon-s-help' },
+        menuCode: '1000004',
+        parentCode: '1000',
+        showOne: true,
+        component: () => import('@/components/second.vue'),
+        children: [
+          {
+            path: 'index',
+            name: 'index',
+            menuCode: '1000004001',
+            parentCode: '1000004',
+            component: () => import('@/views/quotationSystem/itemconfig/index.vue'),
+            meta: { title: '项目显示设置', icon: 'table' }
+          }
+        ]
+      },
+      {
+        path: '/parameter',
+        redirect: 'noRedirect',
+        menuCode: '1000001',
+        parentCode: '1000',
+        component: () => import('@/components/second.vue'),
+        meta: { title: '报价参数', icon: 'el-icon-s-help' },
+        children: [
+          {
+            menuCode: '1000001001',
+            parentCode: '1000001',
+            path: 'paperpricesetting',
+            name: 'paperpricesetting',
+            component: () => import('@/views/quotationSystem/paperpricesetting/index.vue'),
+            meta: { title: '纸张价格设置', icon: 'table' }
+          },
+          {
+            path: 'edit',
+            name: 'edit',
+            component: resolve => import('@/views/quotationSystem/paperpricesetting/edit.vue'),
+            meta: {
+              title: '纸张价格设置-编辑',
+              affix: false,
+              zhTitle: '纸张价格设置-编辑',
+              icon: 'icon-ym icon-ym-btn-preview',
+              canMultipleOpen: false,
+              id: ''
+            },
+            hidden: true
+          },
+          {
+            menuCode: '1000001002',
+            parentCode: '1000001',
+            path: 'printingmachinesetting',
+            name: 'printingmachinesetting',
+            component: () => import('@/views/quotationSystem/printingmachinesetting/index.vue'),
+            meta: { title: '印刷机台设置', icon: 'table' }
+          },
+          {
+            menuCode: '1000001002',
+            parentCode: '1000001',
+            path: 'printEdit',
+            name: 'printEdit',
+            component: () => import('@/views/quotationSystem/printingmachinesetting/edit.vue'),
+            meta: { title: '印刷机台设置-编辑', icon: 'table' },
+            hidden: true
+          }
+        ]
+      },
+      {
+        path: '/boxconfiguration',
+        redirect: '/boxconfiguration/index',
+        name: '盒型配置',
+        meta: { title: '盒型配置', icon: 'el-icon-s-help' },
+        redirect: 'noRedirect',
+        showOne: true,
+        menuCode: '1000005',
+        parentCode: '1000',
+        component: () => import('@/components/second.vue'),
+        children: [
+          {
+            menuCode: '1000005001',
+            parentCode: '1000005',
+            path: 'index',
+            name: 'index',
+            component: () => import('@/views/quotationSystem/colorboxsetting/index.vue'),
+            meta: { title: '彩盒设置', icon: 'table' }
+          }
+        ]
+      },
+      {
+        path: '/boxquotation',
+        redirect: '/boxquotation/index',
+        name: '盒型报价',
+        meta: { title: '盒型报价', icon: 'el-icon-s-help' },
+        redirect: 'noRedirect',
+        menuCode: '1000002',
+        parentCode: '1000',
+        showOne: true,
+        component: () => import('@/components/second.vue'),
+        children: [
+          {
+            menuCode: '1000002001',
+            parentCode: '1000002',
+            path: 'index',
+            name: 'index',
+            component: () => import('@/views/quotationSystem/boxquotation/buttonbottombox/index.vue'),
+            meta: { title: '彩盒彩箱报价', icon: 'table' }
+          }
+        ]
+      },
+      {
+        menuCode: '1000003',
+        parentCode: '1000',
+        path: 'quotationList',
+        name: 'quotationList',
+        meta: { title: '报价单列表', icon: 'el-icon-s-help' },
+        component: () => import('@/views/quotationSystem/quotationList/index.vue'),
+        children: []
+      }
+    ]
+  },
+  {
+    path: '/crm',
+    component: Layout,
+    redirect: '/crm/index',
+    name: 'crm',
+    menuCode: '1001',
+    meta: { title: '客户管理', icon: 'el-icon-s-help' },
+    showOne: true,
+    redirect: 'noRedirect',
+    children: [
+      {
+        path: 'index',
+        name: 'index',
+        menuCode: '1001001',
+        parentCode: '1001',
+        component: () => import('@/views/crm/index.vue'),
+        meta: { title: '客户列表', icon: 'table' }
+      }
+    ]
+  },
+  {
+    path: '/system',
+    component: Layout,
+    redirect: '/system/user',
+    name: '系统管理',
+    meta: { title: '系统管理', icon: 'el-icon-s-help' },
+    onechild: true,
+    redirect: 'noRedirect',
+    menuCode: '1002',
+    children: [
+      {
+        menuCode: '1002002',
+        parentCode: '1002',
+        path: 'user',
+        name: 'user',
+        component: () => import('@/views/system/user.vue'),
+        meta: { title: '用户列表', icon: 'table' }
+      },
+      {
+        path: 'tenta',
+        name: 'tenta',
+        menuCode: '1002001',
+        parentCode: '1002',
+        component: () => import('@/views/system/tenta.vue'),
+        meta: { title: '租户列表', icon: 'table' }
+      },
+      {
+        path: 'permission',
+        name: 'childpermission',
+        component: () => import('@/views/system/permission.vue'),
+        meta: { title: '设置权限', icon: 'table' },
+        hidden: true
+      }
+    ]
+  },
   {
     path: '/permission',
     component: Layout,
@@ -394,7 +562,7 @@ const createRouter = () => new Router({
 })
 
 const router = createRouter()
-
+router.addRoutes(asyncRoutes)
 // Detail see: https://github.com/vuejs/vue-router/issues/1234#issuecomment-357941465
 export function resetRouter() {
   const newRouter = createRouter()

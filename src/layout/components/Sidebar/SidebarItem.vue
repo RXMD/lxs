@@ -70,6 +70,9 @@ export default {
 
       // When there is only one child router, the child router is displayed by default
       if (showingChildren.length === 1) {
+        if (parent.showOne) {
+          return false
+        }
         return true
       }
 
