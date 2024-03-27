@@ -21,7 +21,7 @@
             >
               <el-table-column align="center" prop="iOrder" label="排序" width="60">
                 <template slot-scope="scope">
-                  <el-input v-model="scope.row.iOrder" v-Int size="mini" />
+                  <el-input v-model.number="scope.row.iOrder" v-Int size="mini" />
                 </template>
               </el-table-column>
               <!-- <el-table-column align="center" prop="bStandard" label="通用版" width="100">
@@ -42,7 +42,7 @@
               <el-table-column align="center" prop="dPrice" label="单价（元/件）">
                 <template slot-scope="scope">
                   <div class="d-flex ai-c">
-                    <el-input v-model="scope.row.dPrice" v-Empty-Zero v-Float oninput="value=value.replace(/[^0-9.]/g,'')" size="mini" />
+                    <el-input v-model.number="scope.row.dPrice" v-Empty-Zero v-Float oninput="value=value.replace(/[^0-9.]/g,'')" size="mini" />
 
                   </div>
                 </template>
@@ -56,7 +56,7 @@
                 <template slot-scope="scope">
 
                   <div class="d-flex ai-c">
-                    <el-input v-model="scope.row.dSingleWeightOrQty" v-Empty-Zero v-Float oninput="value=value.replace(/[^0-9.]/g,'')" size="mini" />
+                    <el-input v-model.number="scope.row.dSingleWeightOrQty" v-Empty-Zero v-Float oninput="value=value.replace(/[^0-9.]/g,'')" size="mini" />
                     <el-select v-model="scope.row.sUnitName" size="mini" style="margin-left: 2px">
                       <el-option value="kg/件" label="kg/件" />
                       <el-option value="个/件" label="个/件" />
@@ -97,7 +97,7 @@ export default {
     getList() {
       this.tableData = []
       this.loading = true
-      Api.GetColorBoxSettingAfterProcessPackageListData()
+      Api.GetColorBoxSettingAfterProcessPackageListData(this.uGuid1)
         .then(res => {
           if (res.code == 200) {
             this.tableData =

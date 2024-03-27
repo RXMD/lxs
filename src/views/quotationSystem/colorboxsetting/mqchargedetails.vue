@@ -21,7 +21,7 @@
             >
               <el-table-column align="center" prop="iOrder" label="排序" width="60">
                 <template slot-scope="scope">
-                  <el-input v-model="scope.row.iOrder" v-Int size="mini" />
+                  <el-input v-model.number="scope.row.iOrder" v-Int size="mini" />
                 </template>
               </el-table-column>
               <el-table-column align="center" prop="bEnable" label="启用" width="40">
@@ -73,17 +73,17 @@
 
               <el-table-column align="center" prop="dLength" label="长">
                 <template slot-scope="scope">
-                  <el-input v-model="scope.row.dLength" v-Empty-Zero v-Float oninput="value=value.replace(/[^0-9.]/g,'')" size="mini" />
+                  <el-input v-model.number="scope.row.dLength" v-Empty-Zero v-Float oninput="value=value.replace(/[^0-9.]/g,'')" size="mini" />
                 </template>
               </el-table-column>
               <el-table-column align="center" prop="dWidth" label="宽">
                 <template slot-scope="scope">
-                  <el-input v-model="scope.row.dWidth" v-Empty-Zero v-Float oninput="value=value.replace(/[^0-9.]/g,'')" size="mini" />
+                  <el-input v-model.number="scope.row.dWidth" v-Empty-Zero v-Float oninput="value=value.replace(/[^0-9.]/g,'')" size="mini" />
                 </template>
               </el-table-column>
               <el-table-column align="center" prop="dMinAmount" label="最低消费(元)">
                 <template slot-scope="scope">
-                  <el-input v-model="scope.row.dMinAmount" v-Empty-Zero v-Float oninput="value=value.replace(/[^0-9.]/g,'')" size="mini" />
+                  <el-input v-model.number="scope.row.dMinAmount" v-Empty-Zero v-Float oninput="value=value.replace(/[^0-9.]/g,'')" size="mini" />
                 </template>
               </el-table-column>
 
@@ -91,31 +91,31 @@
                 <template slot="header">模切费单价</template>
                 <el-table-column align="center">
                   <template slot="header">
-                    <input v-model="tableHeader.iTemplateInterval1" v-Int size="mini" class="small-input w-100 e-input" @change="changeiImpression">
+                    <input v-model.number="tableHeader.iTemplateInterval1" v-Int size="mini" class="small-input w-100 e-input" @change="changeiImpression">
                     张内
                   </template>
                   <template slot-scope="scope">
-                    <el-input v-model="scope.row.dTemplateIntervalPrice1" v-Empty-Zero v-Float oninput="value=value.replace(/[^0-9.]/g,'')" size="mini" />
+                    <el-input v-model.number="scope.row.dTemplateIntervalPrice1" v-Empty-Zero v-Float oninput="value=value.replace(/[^0-9.]/g,'')" size="mini" />
                   </template>
                 </el-table-column>
                 <el-table-column align="center">
                   <template slot="header">
-                    <input v-model="tableHeader.iTemplateInterval2" v-Int size="mini" class="small-input w-100 e-input" @change="changeiImpression">
+                    <input v-model.number="tableHeader.iTemplateInterval2" v-Int size="mini" class="small-input w-100 e-input" @change="changeiImpression">
                     张内
                   </template>
                   <template slot-scope="scope">
-                    <el-input v-model="scope.row.dTemplateIntervalPrice2" v-Empty-Zero v-Float oninput="value=value.replace(/[^0-9.]/g,'')" size="mini" />
+                    <el-input v-model.number="scope.row.dTemplateIntervalPrice2" v-Empty-Zero v-Float oninput="value=value.replace(/[^0-9.]/g,'')" size="mini" />
                   </template>
                 </el-table-column>
                 <el-table-column align="center" :label="tableHeader.iTemplateInterval3 + '以上'">
                   <template slot-scope="scope">
-                    <el-input v-model="scope.row.dTemplateIntervalPrice3" v-Empty-Zero v-Float oninput="value=value.replace(/[^0-9.]/g,'')" size="mini" />
+                    <el-input v-model.number="scope.row.dTemplateIntervalPrice3" v-Empty-Zero v-Float oninput="value=value.replace(/[^0-9.]/g,'')" size="mini" />
                   </template>
                 </el-table-column>
               </el-table-column>
               <el-table-column align="center" label="调机费（元）">
                 <template slot-scope="scope">
-                  <el-input v-model="scope.row.dAdjustAmount" v-Empty-Zero v-Float oninput="value=value.replace(/[^0-9.]/g,'')" size="mini" />
+                  <el-input v-model.number="scope.row.dAdjustAmount" v-Empty-Zero v-Float oninput="value=value.replace(/[^0-9.]/g,'')" size="mini" />
                 </template>
               </el-table-column>
 
@@ -150,7 +150,7 @@
                 </template>
                 <el-table-column align="center" prop="iOrder" label="排序" width="60">
                   <template slot-scope="scope">
-                    <el-input v-model="scope.row.iOrder" v-Int size="mini" />
+                    <el-input v-model.number="scope.row.iOrder" v-Int size="mini" />
                   </template>
                 </el-table-column>
                 <el-table-column align="center" prop="sName" label="名称">
@@ -160,7 +160,7 @@
                 </el-table-column>
                 <el-table-column align="center" prop="dAmount" label="金额">
                   <template slot-scope="scope">
-                    <el-input v-model="scope.row.dAmount" v-Empty-Zero v-Float oninput="value=value.replace(/[^0-9.]/g,'')" size="mini" />
+                    <el-input v-model.number="scope.row.dAmount" v-Empty-Zero v-Float oninput="value=value.replace(/[^0-9.]/g,'')" size="mini" />
                   </template>
                 </el-table-column>
               </el-table-column>
@@ -208,7 +208,7 @@ export default {
       this.tableData2 = []
       this.loading = true
       this.loading2 = true
-      Api.GetColorBoxSettingAfterProcessCuttingListData()
+      Api.GetColorBoxSettingAfterProcessCuttingListData(this.uGuid1)
         .then(res => {
           if (res.code == 200) {
             this.tableData =
@@ -230,7 +230,7 @@ export default {
         .catch(() => {
           this.loading = false
         })
-      Api.GetColorBoxSettingAfterProcessCuttingTemplateListData()
+      Api.GetColorBoxSettingAfterProcessCuttingTemplateListData(this.uGuid1)
         .then(res => {
           if (res.code == 200) {
             this.tableData2 =

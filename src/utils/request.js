@@ -2,14 +2,14 @@ import axios from 'axios'
 import { MessageBox, Message } from 'element-ui'
 import store from '@/store'
 import { getToken } from '@/utils/auth'
-const jz = 'https://192.168.1.114:7105'
+const jz = 'https://192.168.1.127:7105'
 let gw = 'http://192.168.1.54:5139'
 const ya = 'http://192.168.1.59:5139'
-const http = 'http://192.168.1.157:6299'
+const http = 'http://192.168.1.157:6199'
 gw = 'http://192.168.1.55:5205'
 // create an axios instance
 const service = axios.create({
-  baseURL: jz, // url = base url + request url
+  baseURL: http, // url = base url + request url
   // baseURL: process.env.VUE_APP_BASE_API,
   // withCredentials: true, // send cookies when cross-domain requests
   timeout: 5000 // request timeout

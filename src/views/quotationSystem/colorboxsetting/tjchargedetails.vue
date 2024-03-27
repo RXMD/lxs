@@ -21,7 +21,7 @@
             >
               <el-table-column align="center" prop="iOrder" label="排序" width="60">
                 <template slot-scope="scope">
-                  <el-input v-model="scope.row.iOrder" v-Int size="mini" />
+                  <el-input v-model.number="scope.row.iOrder" v-Int size="mini" />
                 </template>
               </el-table-column>
               <!-- <el-table-column align="center" prop="bStandard" label="通用版" width="100">
@@ -41,59 +41,59 @@
               </el-table-column>
               <el-table-column align="center" prop="dPrice" label="材料单价(元/㎡)">
                 <template slot-scope="scope">
-                  <el-input v-model="scope.row.dPrice" v-Empty-Zero v-Float oninput="value=value.replace(/[^0-9.]/g,'')" size="mini" />
+                  <el-input v-model.number="scope.row.dPrice" v-Empty-Zero v-Float oninput="value=value.replace(/[^0-9.]/g,'')" size="mini" />
                 </template>
               </el-table-column>
               <el-table-column align="center" prop="dMinPrice" label="材料每张最低单价(元)">
                 <template slot-scope="scope">
-                  <el-input v-model="scope.row.dMinPrice" v-Empty-Zero v-Float oninput="value=value.replace(/[^0-9.]/g,'')" size="mini" />
+                  <el-input v-model.number="scope.row.dMinPrice" v-Empty-Zero v-Float oninput="value=value.replace(/[^0-9.]/g,'')" size="mini" />
                 </template>
               </el-table-column>
               <el-table-column align="center" prop="dMinAmount" label="材料最低收费(元)">
                 <template slot-scope="scope">
-                  <el-input v-model="scope.row.dMinAmount" v-Empty-Zero v-Float oninput="value=value.replace(/[^0-9.]/g,'')" size="mini" />
+                  <el-input v-model.number="scope.row.dMinAmount" v-Empty-Zero v-Float oninput="value=value.replace(/[^0-9.]/g,'')" size="mini" />
                 </template>
               </el-table-column>
               <el-table-column align="center" label="人工(元/张)">
                 <el-table-column align="center" prop="dArtificialSixAmount" label="六开机">
                   <template slot-scope="scope">
-                    <el-input v-model="scope.row.dArtificialSixAmount" v-Empty-Zero v-Float oninput="value=value.replace(/[^0-9.]/g,'')" size="mini" />
+                    <el-input v-model.number="scope.row.dArtificialSixAmount" v-Empty-Zero v-Float oninput="value=value.replace(/[^0-9.]/g,'')" size="mini" />
                   </template>
                 </el-table-column>
                 <el-table-column align="center" prop="dArtificialFourAmount" label="四开机">
                   <template slot-scope="scope">
-                    <el-input v-model="scope.row.dArtificialFourAmount" v-Empty-Zero v-Float oninput="value=value.replace(/[^0-9.]/g,'')" size="mini" />
+                    <el-input v-model.number="scope.row.dArtificialFourAmount" v-Empty-Zero v-Float oninput="value=value.replace(/[^0-9.]/g,'')" size="mini" />
                   </template>
                 </el-table-column>
                 <el-table-column align="center" prop="dArtificialTwoAmount" label="对开机">
                   <template slot-scope="scope">
-                    <el-input v-model="scope.row.dArtificialTwoAmount" v-Empty-Zero v-Float oninput="value=value.replace(/[^0-9.]/g,'')" size="mini" />
+                    <el-input v-model.number="scope.row.dArtificialTwoAmount" v-Empty-Zero v-Float oninput="value=value.replace(/[^0-9.]/g,'')" size="mini" />
                   </template>
                 </el-table-column>
                 <el-table-column align="center" prop="dArtificialFullAmount" label="全开机">
                   <template slot-scope="scope">
-                    <el-input v-model="scope.row.dArtificialFullAmount" v-Empty-Zero v-Float oninput="value=value.replace(/[^0-9.]/g,'')" size="mini" />
+                    <el-input v-model.number="scope.row.dArtificialFullAmount" v-Empty-Zero v-Float oninput="value=value.replace(/[^0-9.]/g,'')" size="mini" />
                   </template>
                 </el-table-column>
               </el-table-column>
               <el-table-column align="center" prop="dAdjustAmount" label="调机费">
                 <template slot-scope="scope">
-                  <el-input v-model="scope.row.dAdjustAmount" v-Empty-Zero v-Float oninput="value=value.replace(/[^0-9.]/g,'')" size="mini" />
+                  <el-input v-model.number="scope.row.dAdjustAmount" v-Empty-Zero v-Float oninput="value=value.replace(/[^0-9.]/g,'')" size="mini" />
                 </template>
               </el-table-column>
               <el-table-column align="center" prop="dMinArtificialAmount" label="人工最低收费(元)">
                 <template slot-scope="scope">
-                  <el-input v-model="scope.row.dMinArtificialAmount" v-Empty-Zero v-Float oninput="value=value.replace(/[^0-9.]/g,'')" size="mini" />
+                  <el-input v-model.number="scope.row.dMinArtificialAmount" v-Empty-Zero v-Float oninput="value=value.replace(/[^0-9.]/g,'')" size="mini" />
                 </template>
               </el-table-column>
               <el-table-column align="center" prop="dTemplateAmount" label="模板费(元/平方厘米)">
                 <template slot-scope="scope">
-                  <el-input v-model="scope.row.dTemplateAmount" v-Empty-Zero v-Float oninput="value=value.replace(/[^0-9.]/g,'')" size="mini" />
+                  <el-input v-model.number="scope.row.dTemplateAmount" v-Empty-Zero v-Float oninput="value=value.replace(/[^0-9.]/g,'')" size="mini" />
                 </template>
               </el-table-column>
               <el-table-column align="center" prop="dMinTemplateAmount" label="模板费最低收费(元)	">
                 <template slot-scope="scope">
-                  <el-input v-model="scope.row.dMinTemplateAmount" v-Empty-Zero v-Float oninput="value=value.replace(/[^0-9.]/g,'')" size="mini" />
+                  <el-input v-model.number="scope.row.dMinTemplateAmount" v-Empty-Zero v-Float oninput="value=value.replace(/[^0-9.]/g,'')" size="mini" />
                 </template>
               </el-table-column>
               <el-table-column align="center" label="操作" width="80" fixed="right">
@@ -125,7 +125,7 @@ export default {
     getList() {
       this.tableData = []
       this.loading = true
-      Api.GetColorBoxSettingAfterProcessHotGoldListData()
+      Api.GetColorBoxSettingAfterProcessHotGoldListData(this.uGuid1)
         .then(res => {
           if (res.code == 200) {
             this.tableData =

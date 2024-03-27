@@ -1,5 +1,6 @@
 import yz from '@/utils/yz'
-import { deepClone, guid } from '@/utils'
+import { deepClone } from '@/utils'
+import { guid } from '@/utils/tool'
 export default {
   props: {
     uGuid1: String
@@ -49,6 +50,7 @@ export default {
       nRow.uGuid2 = this.guid()
       nRow.isEdit = false
       nRow.iOrder = this.tableData.length + 1
+      delete nRow.id
       this.tableData.splice(idx + 1, 0, nRow)
     }
 

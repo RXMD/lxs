@@ -158,7 +158,14 @@ export default {
         this.noticfy('请选择一级表！')
         return false
       }
-
+      multipleSelection.map(item => {
+        if (item.tCrtDate) {
+          item.tCrtDate = new Date(item.tCrtDate).toISOString
+        }
+        if (item.tModDate) {
+          item.tModDate = new Date(item.tCrtDate).toISOString
+        }
+      })
       const postData = {
         mainList: multipleSelection,
 
@@ -170,6 +177,7 @@ export default {
           if (res.code == 200) {
             this.init()
             this.$message.success('操作成功！')
+            this.$emit('refresh')
           }
         })
         .catch(() => {})

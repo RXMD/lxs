@@ -58,12 +58,12 @@
               </el-table-column>
               <el-table-column align="center" prop="dMinAmount" label="最低消费（元）">
                 <template slot-scope="scope">
-                  <el-input v-model="scope.row.dMinAmount" v-Empty-Zero v-Float class="w-100" oninput="value=value.replace(/[^0-9.]/g,'')" size="mini" />
+                  <el-input v-model.number="scope.row.dMinAmount" v-Empty-Zero v-Float class="w-100" oninput="value=value.replace(/[^0-9.]/g,'')" size="mini" />
                 </template>
               </el-table-column>
               <el-table-column align="center" prop="dMinPrice" label="每个盒子最低单价（元）">
                 <template slot-scope="scope">
-                  <el-input v-model="scope.row.dMinPrice" v-Empty-Zero v-Float class="w-100" oninput="value=value.replace(/[^0-9.]/g,'')" size="mini" />
+                  <el-input v-model.number="scope.row.dMinPrice" v-Empty-Zero v-Float class="w-100" oninput="value=value.replace(/[^0-9.]/g,'')" size="mini" />
                 </template>
               </el-table-column>
 
@@ -74,43 +74,43 @@
 
                 <el-table-column v-if="tableHeader.iPriceInterval > 1" align="center">
                   <template slot-scope="scope">
-                    <el-input v-model="scope.row.dPriceInterval1" v-Empty-Zero v-Float class="w-100" oninput="value=value.replace(/[^0-9.]/g,'')" size="mini" />
+                    <el-input v-model.number="scope.row.dPriceInterval1" v-Empty-Zero v-Float class="w-100" oninput="value=value.replace(/[^0-9.]/g,'')" size="mini" />
                   </template>
                   <template slot="header">
-                    <input v-model="tableHeader.iPriceBetween1" v-Int size="mini" class="small-input w-100 e-input" @change="inputChange">
+                    <input v-model.number="tableHeader.iPriceBetween1" v-Int size="mini" class="small-input w-100 e-input" @change="inputChange">
                     张内
                   </template>
                 </el-table-column>
                 <el-table-column v-if="tableHeader.iPriceInterval > 2" align="center">
                   <template slot-scope="scope">
-                    <el-input v-model="scope.row.dPriceInterval2" v-Empty-Zero v-Float class="w-100" oninput="value=value.replace(/[^0-9.]/g,'')" size="mini" />
+                    <el-input v-model.number="scope.row.dPriceInterval2" v-Empty-Zero v-Float class="w-100" oninput="value=value.replace(/[^0-9.]/g,'')" size="mini" />
                   </template>
                   <template slot="header">
-                    <input v-model="tableHeader.iPriceBetween2" v-Int size="mini" class="small-input w-100 e-input" @change="inputChange">
+                    <input v-model.number="tableHeader.iPriceBetween2" v-Int size="mini" class="small-input w-100 e-input" @change="inputChange">
                     张内
                   </template>
                 </el-table-column>
                 <el-table-column v-if="tableHeader.iPriceInterval > 3" align="center">
                   <template slot-scope="scope">
-                    <el-input v-model="scope.row.dPriceInterval3" v-Empty-Zero v-Float class="w-100" oninput="value=value.replace(/[^0-9.]/g,'')" size="mini" />
+                    <el-input v-model.number="scope.row.dPriceInterval3" v-Empty-Zero v-Float class="w-100" oninput="value=value.replace(/[^0-9.]/g,'')" size="mini" />
                   </template>
                   <template slot="header">
-                    <input v-model="tableHeader.iPriceBetween3" v-Int size="mini" class="small-input w-100 e-input" @change="inputChange">
+                    <input v-model.number="tableHeader.iPriceBetween3" v-Int size="mini" class="small-input w-100 e-input" @change="inputChange">
                     张内
                   </template>
                 </el-table-column>
                 <el-table-column v-if="tableHeader.iPriceInterval > 4" align="center">
                   <template slot-scope="scope">
-                    <el-input v-model="scope.row.dPriceInterval4" v-Empty-Zero v-Float class="w-100" oninput="value=value.replace(/[^0-9.]/g,'')" size="mini" />
+                    <el-input v-model.number="scope.row.dPriceInterval4" v-Empty-Zero v-Float class="w-100" oninput="value=value.replace(/[^0-9.]/g,'')" size="mini" />
                   </template>
                   <template slot="header">
-                    <input v-model="tableHeader.iPriceBetween4" v-Int size="mini" class="small-input w-100 e-input" @change="inputChange">
+                    <input v-model.number="tableHeader.iPriceBetween4" v-Int size="mini" class="small-input w-100 e-input" @change="inputChange">
                     张内
                   </template>
                 </el-table-column>
                 <el-table-column align="center" :label="tableHeader.iPriceBetween5 + '以上'">
                   <template slot-scope="scope">
-                    <el-input v-model="scope.row.dPriceInterval5" v-Empty-Zero v-Float class="w-100" oninput="value=value.replace(/[^0-9.]/g,'')" size="mini" />
+                    <el-input v-model.number="scope.row.dPriceInterval5" v-Empty-Zero v-Float class="w-100" oninput="value=value.replace(/[^0-9.]/g,'')" size="mini" />
                   </template>
                 </el-table-column>
               </el-table-column>
@@ -202,7 +202,7 @@ export default {
   methods: {
     getList() {
       this.loading = true
-      Api.GetColorBoxSettingAfterProcessCorrugatedListData()
+      Api.GetColorBoxSettingAfterProcessCorrugatedListData(this.uGuid1)
         .then(res => {
           this.loading = false
           if (res.code == 200 && res.data.length > 0) {

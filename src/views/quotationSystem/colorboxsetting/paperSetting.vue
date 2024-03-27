@@ -45,7 +45,7 @@
           <el-table-column align="center" label="操作" width="100" fixed="right">
             <template slot-scope="scope">
               <el-button size="mini" type="text" @click="edit(scope.row.uGuid1)">编辑</el-button>
-              <el-button size="mini" type="text" class="YZ-table-delBtn" @click="handleDel(scope.row.uGuid1, scope.$index)">删除</el-button>
+              <el-button size="mini" type="text" class="YZ-table-delBtn" @click="handleDel(scope.row.id, scope.$index)">删除</el-button>
             </template>
           </el-table-column>
         </el-table>
@@ -61,7 +61,7 @@
                 ></el-pagination> -->
       </div>
       <el-dialog v-DialogDrag width="70%" title="选择数据" :visible.sync="editVisible" append-to-body :close-on-click-modal="false" @close="editVisible = false">
-        <paper-setting-edit :id="id" @close="closeDialog" />
+        <paper-setting-edit :id="id" @close="closeDialog" @refresh="Refresh" />
       </el-dialog>
     </div>
   </transition>

@@ -72,7 +72,7 @@ export const constantRoutes = [
         path: 'index',
         component: () => import('@/views/documentation/index'),
         name: 'Documentation',
-        meta: { title: 'Documentation', icon: 'documentation', affix: true }
+        meta: { title: 'Documentation', icon: 'documentation', affix: false }
       }
     ]
   },
@@ -114,7 +114,6 @@ export const asyncRoutes = [
   {
     path: '/configuration',
     component: Layout,
-    redirect: '/configuration/index',
     name: 'configuration',
     meta: { title: '报价管理', icon: 'el-icon-s-help' },
     redirect: 'noRedirect',
@@ -132,7 +131,7 @@ export const asyncRoutes = [
         children: [
           {
             path: 'index',
-            name: 'index',
+            name: 'projectEdit',
             menuCode: '1000004001',
             parentCode: '1000004',
             component: () => import('@/views/quotationSystem/itemconfig/index.vue'),
@@ -179,8 +178,6 @@ export const asyncRoutes = [
             meta: { title: '印刷机台设置', icon: 'table' }
           },
           {
-            menuCode: '1000001002',
-            parentCode: '1000001',
             path: 'printEdit',
             name: 'printEdit',
             component: () => import('@/views/quotationSystem/printingmachinesetting/edit.vue'),
@@ -191,7 +188,6 @@ export const asyncRoutes = [
       },
       {
         path: '/boxconfiguration',
-        redirect: '/boxconfiguration/index',
         name: '盒型配置',
         meta: { title: '盒型配置', icon: 'el-icon-s-help' },
         redirect: 'noRedirect',
@@ -204,7 +200,7 @@ export const asyncRoutes = [
             menuCode: '1000005001',
             parentCode: '1000005',
             path: 'index',
-            name: 'index',
+            name: 'colorboxsetting',
             component: () => import('@/views/quotationSystem/colorboxsetting/index.vue'),
             meta: { title: '彩盒设置', icon: 'table' }
           }
@@ -212,7 +208,6 @@ export const asyncRoutes = [
       },
       {
         path: '/boxquotation',
-        redirect: '/boxquotation/index',
         name: '盒型报价',
         meta: { title: '盒型报价', icon: 'el-icon-s-help' },
         redirect: 'noRedirect',
@@ -245,7 +240,6 @@ export const asyncRoutes = [
   {
     path: '/crm',
     component: Layout,
-    redirect: '/crm/index',
     name: 'crm',
     menuCode: '1001',
     meta: { title: '客户管理', icon: 'el-icon-s-help' },
@@ -254,7 +248,7 @@ export const asyncRoutes = [
     children: [
       {
         path: 'index',
-        name: 'index',
+        name: 'crmList',
         menuCode: '1001001',
         parentCode: '1001',
         component: () => import('@/views/crm/index.vue'),
@@ -265,7 +259,6 @@ export const asyncRoutes = [
   {
     path: '/system',
     component: Layout,
-    redirect: '/system/user',
     name: '系统管理',
     meta: { title: '系统管理', icon: 'el-icon-s-help' },
     onechild: true,

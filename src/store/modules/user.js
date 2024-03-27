@@ -43,15 +43,15 @@ const state = {
   //   "tenantId": null
   // },
   userInfo: {
-    'id': 518161268539461,
-    'userName': 'yeao',
-    'realName': 'yeao',
-    'eMail': '1232@qq.com',
-    'sex': 1,
-    'sexText': '女',
-    'isMain': true,
-    'mainText': '主账号',
-    'tenantId': null
+    // 'id': 518161268539461,
+    // 'userName': 'yeao',
+    // 'realName': 'yeao',
+    // 'eMail': '1232@qq.com',
+    // 'sex': 1,
+    // 'sexText': '女',
+    // 'isMain': true,
+    // 'mainText': '主账号',
+    // 'tenantId': null
   },
   routers: []
 }

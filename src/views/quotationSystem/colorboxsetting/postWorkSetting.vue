@@ -26,37 +26,37 @@
 
           <el-table-column v-if="tableHeader.iPriceInterval > 1" align="center">
             <template slot-scope="scope">
-              <el-input v-model="scope.row.dPriceInterval1" v-Empty-Zero v-Float oninput="value=value.replace(/[^0-9.]/g,'')" size="mini" />
+              <el-input v-model.number="scope.row.dPriceInterval1" v-Empty-Zero v-Float size="mini" />
             </template>
             <template slot="header">
-              <input v-model="tableHeader.iPriceBetween1" v-Int size="mini" class="small-input w-100 e-input" @change="inputChange">
+              <input v-model.number="tableHeader.iPriceBetween1" v-Int size="mini" class="small-input w-100 e-input" @change="inputChange">
               张（个）以内
             </template>
           </el-table-column>
           <el-table-column v-if="tableHeader.iPriceInterval > 2" align="center">
             <template slot-scope="scope">
-              <el-input v-model="scope.row.dPriceInterval2" v-Empty-Zero v-Float oninput="value=value.replace(/[^0-9.]/g,'')" size="mini" />
+              <el-input v-model.number="scope.row.dPriceInterval2" v-Empty-Zero v-Float size="mini" />
             </template>
             <template slot="header">
-              <input v-model="tableHeader.iPriceBetween2" v-Int size="mini" class="small-input w-100 e-input" @change="inputChange">
+              <input v-model.number="tableHeader.iPriceBetween2" v-Int size="mini" class="small-input w-100 e-input" @change="inputChange">
               张（个）以内
             </template>
           </el-table-column>
           <el-table-column v-if="tableHeader.iPriceInterval > 3" align="center">
             <template slot-scope="scope">
-              <el-input v-model="scope.row.dPriceInterval3" v-Empty-Zero v-Float oninput="value=value.replace(/[^0-9.]/g,'')" size="mini" />
+              <el-input v-model.number="scope.row.dPriceInterval3" v-Empty-Zero v-Float size="mini" />
             </template>
             <template slot="header">
-              <input v-model="tableHeader.iPriceBetween3" v-Int size="mini" class="small-input w-100 e-input" @change="inputChange">
+              <input v-model.number="tableHeader.iPriceBetween3" v-Int size="mini" class="small-input w-100 e-input" @change="inputChange">
               张（个）以内
             </template>
           </el-table-column>
           <el-table-column v-if="tableHeader.iPriceInterval > 4" align="center">
             <template slot-scope="scope">
-              <el-input v-model="scope.row.dPriceInterval4" v-Empty-Zero v-Float oninput="value=value.replace(/[^0-9.]/g,'')" size="mini" />
+              <el-input v-model.number="scope.row.dPriceInterval4" v-Empty-Zero v-Float size="mini" />
             </template>
             <template slot="header">
-              <input v-model="tableHeader.iPriceBetween4" v-Int size="mini" class="small-input w-100 e-input" @change="inputChange">
+              <input v-model.number="tableHeader.iPriceBetween4" v-Int size="mini" class="small-input w-100 e-input" @change="inputChange">
               张（个）以内
             </template>
           </el-table-column>
@@ -78,7 +78,7 @@
                 <el-button type="text" @click="LinkLookDetail(scope.row)">查看收费详情</el-button>
               </p>
 
-              <el-input v-else v-model="scope.row.dPriceInterval5" v-Empty-Zero v-Float oninput="value=value.replace(/[^0-9.]/g,'')" size="mini" />
+              <el-input v-else v-model.number="scope.row.dPriceInterval5" v-Empty-Zero v-Float size="mini" />
             </template>
           </el-table-column>
 
@@ -95,7 +95,7 @@
         <el-table-column label="最低消费" align="center">
           <el-table-column label="开机费（元）" align="center">
             <template slot-scope="scope">
-              <el-input v-model="scope.row.dStartupAmount" v-Empty-Zero v-Float oninput="value=value.replace(/[^0-9.]/g,'')" size="mini" />
+              <el-input v-model.number="scope.row.dStartupAmount" v-Empty-Zero v-Float size="mini" />
             </template>
           </el-table-column>
         </el-table-column>
@@ -115,7 +115,7 @@
           <template slot-scope="scope">
             <el-input
               v-if="scope.row.sAfterProcessName == '击凸' || scope.row.sAfterProcessName == '击凹'"
-              v-model="scope.row.dAdjustAmount"
+              v-model.number="scope.row.dAdjustAmount"
               v-Empty-Zero
               v-Float
               oninput="value=value.replace(/[^0-9.]/g,'')"
@@ -128,11 +128,10 @@
             <p v-if="scope.row.sAfterProcessName == '击凸' || scope.row.sAfterProcessName == '击凹'" class="d-flex ai-c">
               <span style="width: 75px; text-align: right">模板费</span>
               <el-input
-                v-model="scope.row.dTemplateAndMinSpacingAmount"
+                v-model.number="scope.row.dTemplateAndMinSpacingAmount"
                 v-Empty-Zero
                 v-Float
                 style="width: 70px"
-                oninput="value=value.replace(/[^0-9.]/g,'')"
                 size="mini"
                 class="input-box"
               />
@@ -157,10 +156,9 @@
           <template slot-scope="scope">
             <el-input
               v-if="scope.row.sAfterProcessName == '击凸' || scope.row.sAfterProcessName == '击凹'"
-              v-model="scope.row.dTemplateMinAmount"
+              v-model.number="scope.row.dTemplateMinAmount"
               v-Empty-Zero
               v-Float
-              oninput="value=value.replace(/[^0-9.]/g,'')"
               size="mini"
             />
           </template>
@@ -205,8 +203,8 @@
 </template>
 
 <script>
-import { guid } from '@/utils'
 import Api from '@/api/quotationSystem/basicData'
+import { number } from 'echarts/lib/export'
 export default {
   name: 'PostWorkSetting',
   components: {
@@ -241,7 +239,7 @@ export default {
         iPriceBetween3: 0,
         iPriceBetween4: 0,
         iPriceBetween1: 0,
-        iPriceBetween5: ''
+        iPriceBetween5: 0
       },
       tableHeight: 400,
       feeDetailsVisible: false,
@@ -273,7 +271,7 @@ export default {
   },
   watch: {
     tab(v) {
-      if (v == 'postWorkSettings') {
+      if (v === 'postWorkSettings') {
         this.getData()
         this.getTableH()
       }
@@ -301,7 +299,7 @@ export default {
     getData() {
       Api.GetColorBoxSettingAfterProcessListData()
         .then(res => {
-          if (res.code == 200 && res.data && res.data.length > 0) {
+          if (res.code === 200 && res.data && res.data.length > 0) {
             this.goodList = res.data.map(item => {
               item.isEdit = true
               return item
@@ -325,6 +323,7 @@ export default {
       const { iPriceInterval, iPriceBetween2, iPriceBetween3, iPriceBetween4, iPriceBetween1, iPriceBetween5 } = this.tableHeader
       let flag = true
       if (iPriceInterval === 3) {
+        console.log(iPriceBetween3, iPriceBetween2, iPriceBetween1)
         if (iPriceBetween3 <= iPriceBetween2 || iPriceBetween2 <= iPriceBetween1 || iPriceBetween3 <= iPriceBetween1) {
           // 条件不满足的处理逻辑
           flag = false
@@ -340,7 +339,7 @@ export default {
         return false
       }
       const postData = this.goodList.map(item => {
-        item.uGuid1 = item.uGuid1 || guid()
+        item.uGuid1 = item.uGuid1 || this.$guid()
         return item
       })
       for (const key in this.tableHeader) {
@@ -352,10 +351,9 @@ export default {
         mainList: postData
       })
         .then(res => {
-          if (res.code == 200) {
+          if (res.code === 200) {
             this.noticfy('操作成功！', 'success')
             this.getData()
-          } else {
           }
         })
         .catch(() => {})

@@ -53,8 +53,8 @@ export function addUser(data) {
 // 删除用户
 export function deleteUser(id) {
   return request({
-    url: `/System/User/User?userId=${id}`,
-    method: 'delete'
+    url: `/System/User/DeleteUser?userId=${id}`,
+    method: 'post'
   })
 }
 // 获取权限

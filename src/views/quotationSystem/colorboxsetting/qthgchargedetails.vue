@@ -21,7 +21,7 @@
             >
               <el-table-column align="center" prop="iOrder" label="排序" width="60">
                 <template slot-scope="scope">
-                  <el-input v-model="scope.row.iOrder" v-Int size="mini" />
+                  <el-input v-model.number="scope.row.iOrder" v-Int size="mini" />
                 </template>
               </el-table-column>
               <!-- <el-table-column align="center" prop="bStandard" label="通用版" width="100">
@@ -42,7 +42,7 @@
               <el-table-column align="center" prop="dPrice" label="单价">
                 <template slot-scope="scope">
                   <div class="d-flex ai-c">
-                    <el-input v-model="scope.row.dPrice" v-Empty-Zero v-Float oninput="value=value.replace(/[^0-9.]/g,'')" size="mini" />
+                    <el-input v-model.number="scope.row.dPrice" v-Empty-Zero v-Float oninput="value=value.replace(/[^0-9.]/g,'')" size="mini" />
                     <el-select v-model="scope.row.sUnitName" size="mini" style="margin-left: 2px">
                       <el-option value="元/个" label="元/个" />
                       <el-option value="元/㎡" label="元/㎡" />
@@ -53,12 +53,12 @@
               </el-table-column>
               <el-table-column align="center" prop="dMinAmount" label="最低消费(开机费)（元）">
                 <template slot-scope="scope">
-                  <el-input v-model="scope.row.dMinAmount" v-Empty-Zero v-Float oninput="value=value.replace(/[^0-9.]/g,'')" size="mini" />
+                  <el-input v-model.number="scope.row.dMinAmount" v-Empty-Zero v-Float oninput="value=value.replace(/[^0-9.]/g,'')" size="mini" />
                 </template>
               </el-table-column>
               <el-table-column align="center" prop="dMinPrice" label="每个成品最低单价（元）">
                 <template slot-scope="scope">
-                  <el-input v-if="scope.row.sUnitName == '元/个'" v-model="scope.row.dMinPrice" v-Empty-Zero v-Float oninput="value=value.replace(/[^0-9.]/g,'')" size="mini" />
+                  <el-input v-if="scope.row.sUnitName == '元/个'" v-model.number="scope.row.dMinPrice" v-Empty-Zero v-Float oninput="value=value.replace(/[^0-9.]/g,'')" size="mini" />
                 </template>
               </el-table-column>
 
@@ -93,7 +93,7 @@ export default {
     getList() {
       this.tableData = []
       this.loading = true
-      Api.GetColorBoxSettingAfterProcessOtherAfterListData()
+      Api.GetColorBoxSettingAfterProcessOtherAfterListData(this.uGuid1)
         .then(res => {
           if (res.code == 200) {
             this.tableData =

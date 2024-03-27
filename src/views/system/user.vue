@@ -13,7 +13,7 @@
         </div>
         <div class="dynamic-form-main w-100">
           <el-table ref="table" v-loading="listLoading" :data="userList" border class="w-100 YZ-common-table bd-table table-border-bottom" size="mini" stripe highlight-current-row @row-click="rowClick">
-            <el-table-column align="center" prop="userName" label="用户名" width="120" />
+            <el-table-column align="center" prop="userName" label="用户名" width="240" />
             <el-table-column align="center" prop="eMail" label="邮箱" width="160" />
             <el-table-column align="center" prop="realName" label="真实姓名" width="120" />
             <el-table-column align="center" prop="isMain" :formatter="fmtSpecialEdition" label="是否主账号" />
@@ -47,7 +47,7 @@
 
 <script>
 import waves from '@/directive/waves' // waves directive
-import { getUserList, SubAccountList } from '@/api/system/user'
+import { getUserList } from '@/api/system/user'
 import UserEdit from './userEdit.vue'
 import { deleteUser } from '@/api/user'
 export default {
@@ -89,7 +89,7 @@ export default {
       this.$confirm('确定要删除所选数据吗？', '提示', { type: 'warning' }).then(() => {
         deleteUser(id)
           .then(res => {
-            if (res.code == 200) {
+            if (res.code === 200) {
               this.$message.success('删除成功！')
               this.userList.splice(index, 1)
             } else {

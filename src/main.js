@@ -44,17 +44,17 @@ Vue.prototype.$guid = guid
 Object.assign(Vue.prototype, {
   yz
 })
-function noticfy(tip, type = 'error', customClass,duration=1500) {
+function noticfy(tip, type = 'error', customClass, duration = 1500) {
   this.$notify[type]({
-      title: '提示',
-      dangerouslyUseHTMLString: true,
-      message: tip,
-      offset: 0,
-      duration:duration,
-      customClass: customClass,
-  });
+    title: '提示',
+    dangerouslyUseHTMLString: true,
+    message: tip,
+    offset: 0,
+    duration: duration,
+    customClass: customClass
+  })
 }
-Vue.prototype.noticfy = noticfy;
+Vue.prototype.noticfy = noticfy
 // register global utility filters
 Object.keys(filters).forEach(key => {
   Vue.filter(key, filters[key])

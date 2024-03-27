@@ -121,7 +121,7 @@ export default {
   .msg {
     display: flex;
     flex-direction: column;
-    align-items: end;
+    align-items: flex-end;
     .file {
       cursor: pointer;
       border-radius: 8px;

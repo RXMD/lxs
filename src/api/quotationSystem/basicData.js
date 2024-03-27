@@ -168,24 +168,24 @@ export default {
   },
 
   // 保存彩盒设置-纸张设置
-  SaveColorBoxSettingPrintMachineSetting(data) {
-    return request({
-      url: `/Ele_ColorBoxSetting_PrintMachineSetting/SaveData`,
-      method: 'POST',
-      data
-    })
-  },
+  // SaveColorBoxSettingPrintMachineSetting(data) {
+  //   return request({
+  //     url: `/Ele_ColorBoxSetting_PrintMachineSetting/SaveData`,
+  //     method: 'POST',
+  //     data
+  //   })
+  // },
   // 获得某条获取彩盒设置-纸张设置列表
   GetColorBoxSettingPaperListData() {
     return request({
-      url: `api/QuotationSystem/GetColorBoxSettingPaperListData`,
+      url: `/Ele_ColorBoxSetting_Paper/ListData`,
       method: 'GET'
     })
   },
   // 通过项目名称类别来获取纸张设置数据（主表、明细表）
   GetPaperPriceSettingDetailByItemName(sItemName) {
     return request({
-      url: `api/QuotationSystem/GetPaperPriceSettingDetailByItemName?sItemName=${sItemName}`,
+      url: `/Ele_ColorBoxSetting_Paper/PaperPriceSettingDetailByItemName?sItemName=${sItemName}`,
       method: 'GET'
     })
   },
@@ -199,7 +199,7 @@ export default {
   // 保存彩盒纸张设置
   SaveColorBoxSettingPaper(data) {
     return request({
-      url: `api/QuotationSystem/SaveColorBoxSettingPaper`,
+      url: `/Ele_ColorBoxSetting_Paper/SaveData`,
       method: 'POST',
       data
     })
@@ -207,7 +207,7 @@ export default {
   // 删除某条保存彩盒设置-纸张设置设置数据
   DeleteColorBoxSettingPaper(id) {
     return request({
-      url: `api/QuotationSystem/DeleteColorBoxSettingPaper?uGuid1=${id}`,
+      url: `/Ele_ColorBoxSetting_Paper/DeleDataById?id=${id}`,
       method: 'DELETE'
     })
   },
@@ -215,14 +215,14 @@ export default {
   // 获得某条获取彩盒设置--纸张设置设置数据
   GetColorBoxSettingPaperDetail(uGuid1) {
     return request({
-      url: `api/QuotationSystem/GetColorBoxSettingPaperDetail?uGuid1=${uGuid1}`,
+      url: `/Ele_ColorBoxSetting_Paper/SingleData?uGuid1=${uGuid1}`,
       method: 'GET'
     })
   },
   // 获取彩盒设置-后工设置列表
   GetColorBoxSettingAfterProcessListData() {
     return request({
-      url: `api/QuotationSystem/GetColorBoxSettingAfterProcessListData`,
+      url: `/Ele_ColorBoxSetting_AfterProcess/ListData`,
       method: 'GET'
     })
   },
@@ -230,15 +230,15 @@ export default {
   // 获取彩盒设置-后工设置 保存
   SaveColorBoxSettingAfterProcess(data) {
     return request({
-      url: `api/QuotationSystem/SaveColorBoxSettingAfterProcess`,
+      url: `/Ele_ColorBoxSetting_AfterProcess/SaveData`,
       method: 'POST',
       data
     })
   },
   // 获取彩盒设置-后工设置 局部压纹
-  GetColorBoxSettingAfterProcessLocalEmbossingListData() {
+  GetColorBoxSettingAfterProcessLocalEmbossingListData(id) {
     return request({
-      url: `api/QuotationSystem/GetColorBoxSettingAfterProcessLocalEmbossingListData`,
+      url: `/Ele_ColorBoxSetting_AfterProcess_LocalEmbossing/ListData?uGuid1=${id}`,
       method: 'GET'
     })
   },
@@ -246,15 +246,15 @@ export default {
   // 获取彩盒设置-后工设置  局部压纹 保存
   SaveColorBoxSettingAfterProcessLocalEmbossing(data) {
     return request({
-      url: `api/QuotationSystem/SaveColorBoxSettingAfterProcessLocalEmbossing`,
+      url: `/Ele_ColorBoxSetting_AfterProcess_LocalEmbossing/SaveData`,
       method: 'POST',
       data
     })
   },
   // 获取彩盒设置-后工设置 满版压纹
-  GetColorBoxSettingAfterProcessFullEmbossingListData() {
+  GetColorBoxSettingAfterProcessFullEmbossingListData(id) {
     return request({
-      url: `api/QuotationSystem/GetColorBoxSettingAfterProcessFullEmbossingListData`,
+      url: `/Ele_ColorBoxSetting_AfterProcess_FullEmbossing/ListData?uGuid1=${id}`,
       method: 'GET'
     })
   },
@@ -262,15 +262,15 @@ export default {
   // 获取彩盒设置-后工设置  满版压纹 保存
   SaveColorBoxSettingAfterProcessFullEmbossing(data) {
     return request({
-      url: `api/QuotationSystem/SaveColorBoxSettingAfterProcessFullEmbossing`,
+      url: `/Ele_ColorBoxSetting_AfterProcess_FullEmbossing/SaveData`,
       method: 'POST',
       data
     })
   },
   // 获取彩盒设置-后工设置 局部Uv
-  GetColorBoxSettingAfterProcessLocalUVListData() {
+  GetColorBoxSettingAfterProcessLocalUVListData(id) {
     return request({
-      url: `api/QuotationSystem/GetColorBoxSettingAfterProcessLocalUVListData`,
+      url: `/Ele_ColorBoxSetting_AfterProcess_LocalUV/ListData?uGuid1=${id}`,
       method: 'GET'
     })
   },
@@ -278,15 +278,15 @@ export default {
   // 获取彩盒设置-后工设置  局部Uv 保存
   SaveColorBoxSettingAfterProcessLocalUV(data) {
     return request({
-      url: `api/QuotationSystem/SaveColorBoxSettingAfterProcessLocalUV`,
+      url: `/Ele_ColorBoxSetting_AfterProcess_LocalUV/SaveData`,
       method: 'POST',
       data
     })
   },
   // 获取彩盒设置-后工设置 手工绳
-  GetColorBoxSettingAfterProcessHandRopeListData() {
+  GetColorBoxSettingAfterProcessHandRopeListData(id) {
     return request({
-      url: `api/QuotationSystem/GetColorBoxSettingAfterProcessHandRopeListData`,
+      url: `/Ele_ColorBoxSetting_AfterProcess_HandRope/ListData?uGuid1=${id}`,
       method: 'GET'
     })
   },
@@ -294,16 +294,16 @@ export default {
   // 获取彩盒设置-后工设置  手工绳 保存
   SaveColorBoxSettingAfterProcessHandRope(data) {
     return request({
-      url: `api/QuotationSystem/SaveColorBoxSettingAfterProcessHandRope`,
+      url: `/Ele_ColorBoxSetting_AfterProcess_HandRope/SaveData`,
       method: 'POST',
       data
     })
   },
 
   // 获取彩盒设置-后工设置 烫金
-  GetColorBoxSettingAfterProcessHotGoldListData() {
+  GetColorBoxSettingAfterProcessHotGoldListData(id) {
     return request({
-      url: `api/QuotationSystem/GetColorBoxSettingAfterProcessHotGoldListData`,
+      url: `/Ele_ColorBoxSetting_AfterProcess_HotGold/ListData?uGuid1=${id}`,
       method: 'GET'
     })
   },
@@ -311,15 +311,15 @@ export default {
   // 获取彩盒设置-后工设置  烫金 保存
   SaveColorBoxSettingAfterProcessHotGold(data) {
     return request({
-      url: `api/QuotationSystem/SaveColorBoxSettingAfterProcessHotGold`,
+      url: `/Ele_ColorBoxSetting_AfterProcess_HotGold/SaveData`,
       method: 'POST',
       data
     })
   },
   // 获取彩盒设置-后工设置 表面处理
-  GetColorBoxSettingAfterProcessSurfaceListData() {
+  GetColorBoxSettingAfterProcessSurfaceListData(id) {
     return request({
-      url: `api/QuotationSystem/GetColorBoxSettingAfterProcessSurfaceListData`,
+      url: `/Ele_ColorBoxSetting_AfterProcess_Surface/ListData?uGuid1=${id}`,
       method: 'GET'
     })
   },
@@ -327,15 +327,15 @@ export default {
   // 获取彩盒设置-后工设置  表面处理 保存
   SaveColorBoxSettingAfterProcessSurface(data) {
     return request({
-      url: `api/QuotationSystem/SaveColorBoxSettingAfterProcessSurface`,
+      url: `/Ele_ColorBoxSetting_AfterProcess_Surface/SaveData`,
       method: 'POST',
       data
     })
   },
   // 获取彩盒设置-后工设置 开天窗贴胶片
-  GetColorBoxSettingAfterProcessPastingFilmListData() {
+  GetColorBoxSettingAfterProcessPastingFilmListData(id) {
     return request({
-      url: `api/QuotationSystem/GetColorBoxSettingAfterProcessPastingFilmListData`,
+      url: `/Ele_ColorBoxSetting_AfterProcess_PastingFilm/ListData?uGuid1=${id}`,
       method: 'GET'
     })
   },
@@ -343,7 +343,7 @@ export default {
   // 获取彩盒设置-后工设置 开天窗贴胶片 保存
   SaveColorBoxSettingAfterProcessPastingFilm(data) {
     return request({
-      url: `api/QuotationSystem/SaveColorBoxSettingAfterProcessPastingFilm`,
+      url: `/Ele_ColorBoxSetting_AfterProcess_PastingFilm/SaveData`,
       method: 'POST',
       data
     })
@@ -352,7 +352,7 @@ export default {
   // 获取彩盒设置-后工设置 厚度及价格
   GetColorBoxSettingAfterProcessPastingFilmDetailListData(uGuid2) {
     return request({
-      url: `api/QuotationSystem/GetColorBoxSettingAfterProcessPastingFilmDetailListData?uGuid2=${uGuid2}`,
+      url: `/Ele_ColorBoxSetting_AfterProcess_PastingFilm/ColorBoxSettingAfterProcessPastingFilmDetailListData?uGuid2=${uGuid2}`,
       method: 'GET'
     })
   },
@@ -360,15 +360,15 @@ export default {
   // 获取彩盒设置-后工设置 厚度及价格 保存
   SaveColorBoxSettingAfterProcessPastingFilmDetail(data) {
     return request({
-      url: `api/QuotationSystem/SaveColorBoxSettingAfterProcessPastingFilmDetail`,
+      url: `/Ele_ColorBoxSetting_AfterProcess_PastingFilm/SaveDetailData`,
       method: 'POST',
       data
     })
   },
   // 获取彩盒设置-后工设置 双面胶
-  GetColorBoxSettingAfterProcessDoubleFilmListData() {
+  GetColorBoxSettingAfterProcessDoubleFilmListData(id) {
     return request({
-      url: `api/QuotationSystem/GetColorBoxSettingAfterProcessDoubleFilmListData`,
+      url: `/Ele_ColorBoxSetting_AfterProcess_DoubleFilm/ListData?uGuid1=${id}`,
       method: 'GET'
     })
   },
@@ -376,15 +376,15 @@ export default {
   // 获取彩盒设置-后工设置 双面胶 保存
   SaveColorBoxSettingAfterProcessDoubleFilm(data) {
     return request({
-      url: `api/QuotationSystem/SaveColorBoxSettingAfterProcessDoubleFilm`,
+      url: `/Ele_ColorBoxSetting_AfterProcess_DoubleFilm/SaveData`,
       method: 'POST',
       data
     })
   },
   // 获取彩盒设置-后工设置 易撕带
-  GetColorBoxSettingAfterProcessEasyTearTapeListData() {
+  GetColorBoxSettingAfterProcessEasyTearTapeListData(id) {
     return request({
-      url: `api/QuotationSystem/GetColorBoxSettingAfterProcessEasyTearTapeListData`,
+      url: `/Ele_ColorBoxSetting_AfterProcess_EasyTearTape/ListData?uGuid1=${id}`,
       method: 'GET'
     })
   },
@@ -392,23 +392,23 @@ export default {
   // 获取彩盒设置-后工设置 易撕带 保存
   SaveColorBoxSettingAfterProcessEasyTearTape(data) {
     return request({
-      url: `api/QuotationSystem/SaveColorBoxSettingAfterProcessEasyTearTape`,
+      url: `/Ele_ColorBoxSetting_AfterProcess_EasyTearTape/SaveData`,
       method: 'POST',
       data
     })
   },
 
   // 获取彩盒设置-后工设置 模切
-  GetColorBoxSettingAfterProcessCuttingListData() {
+  GetColorBoxSettingAfterProcessCuttingListData(id) {
     return request({
-      url: `api/QuotationSystem/GetColorBoxSettingAfterProcessCuttingListData`,
+      url: `/Ele_ColorBoxSetting_AfterProcess_Cutting/ListData?uGuid1=${id}`,
       method: 'GET'
     })
   },
   // 获取彩盒设置-后工设置 模切模板费列
-  GetColorBoxSettingAfterProcessCuttingTemplateListData() {
+  GetColorBoxSettingAfterProcessCuttingTemplateListData(id) {
     return request({
-      url: `api/QuotationSystem/GetColorBoxSettingAfterProcessCuttingTemplateListData`,
+      url: `/Ele_ColorBoxSetting_AfterProcess_Cutting/ColorBoxSettingAfterProcessCuttingTemplateListData?uGuid1=${id}`,
       method: 'GET'
     })
   },
@@ -416,15 +416,15 @@ export default {
   // 获取彩盒设置-后工设置 模切 保存
   SaveColorBoxSettingAfterProcessCutting(data) {
     return request({
-      url: `api/QuotationSystem/SaveColorBoxSettingAfterProcessCutting`,
+      url: `/Ele_ColorBoxSetting_AfterProcess_Cutting/SaveData`,
       method: 'POST',
       data
     })
   },
   // 获取彩盒设置-后工设置 其他后工
-  GetColorBoxSettingAfterProcessOtherAfterListData() {
+  GetColorBoxSettingAfterProcessOtherAfterListData(id) {
     return request({
-      url: `api/QuotationSystem/GetColorBoxSettingAfterProcessOtherAfterListData`,
+      url: `/Ele_ColorBoxSetting_AfterProcess_OtherAfter/ListData?uGuid1=${id}`,
       method: 'GET'
     })
   },
@@ -432,15 +432,15 @@ export default {
   // 获取彩盒设置-后工设置 其他后工 保存
   SaveColorBoxSettingAfterProcessOtherAfter(data) {
     return request({
-      url: `api/QuotationSystem/SaveColorBoxSettingAfterProcessOtherAfter`,
+      url: `/Ele_ColorBoxSetting_AfterProcess_OtherAfter/SaveData`,
       method: 'POST',
       data
     })
   },
   // 获取彩盒设置-后工设置 包装
-  GetColorBoxSettingAfterProcessPackageListData() {
+  GetColorBoxSettingAfterProcessPackageListData(id) {
     return request({
-      url: `api/QuotationSystem/GetColorBoxSettingAfterProcessPackageListData`,
+      url: `/Ele_ColorBoxSetting_AfterProcess_Package/ListData?uGuid1=${id}`,
       method: 'GET'
     })
   },
@@ -448,16 +448,16 @@ export default {
   // 获取彩盒设置-后工设置 包装 保存
   SaveColorBoxSettingAfterProcessPackage(data) {
     return request({
-      url: `api/QuotationSystem/SaveColorBoxSettingAfterProcessPackage`,
+      url: `/Ele_ColorBoxSetting_AfterProcess_Package/SaveData`,
       method: 'POST',
       data
     })
   },
 
   // 获取彩盒设置-后工设置 粘盒
-  GetColorBoxSettingAfterProcessPasteBoxUniformPriceListData() {
+  GetColorBoxSettingAfterProcessPasteBoxUniformPriceListData(id) {
     return request({
-      url: `api/QuotationSystem/GetColorBoxSettingAfterProcessPasteBoxUniformPriceListData`,
+      url: `/Ele_ColorBoxSetting_AfterProcess_PasteBoxUniformPrice/ListData?uGuid1=${id}`,
       method: 'GET'
     })
   },
@@ -465,37 +465,37 @@ export default {
   // 获取彩盒设置-后工设置 粘盒 保存
   SaveColorBoxSettingAfterProcessPasteBoxUniformPrice(data) {
     return request({
-      url: `api/QuotationSystem/SaveColorBoxSettingAfterProcessPasteBoxUniformPrice`,
+      url: `/Ele_ColorBoxSetting_AfterProcess_PasteBoxUniformPrice/SaveData`,
       method: 'POST',
       data
     })
   },
   // 获取彩盒设置-后工设置 裱卡
-  GetColorBoxSettingAfterProcessMountedPaperListData() {
+  GetColorBoxSettingAfterProcessMountedPaperListData(id) {
     return request({
-      url: `api/QuotationSystem/GetColorBoxSettingAfterProcessMountedPaperListData`,
+      url: `/Ele_ColorBoxSetting_AfterProcess_MountedPaper/ListData?uGuid1=${id}`,
       method: 'GET'
     })
   },
   // 获取彩盒设置-后工设置 裱卡 保存
   SaveColorBoxSettingAfterProcessMountedPaper(data) {
     return request({
-      url: `api/QuotationSystem/SaveColorBoxSettingAfterProcessMountedPaper`,
+      url: `/Ele_ColorBoxSetting_AfterProcess_MountedPaper/SaveData`,
       method: 'POST',
       data
     })
   },
   // 获取彩盒设置-后工设置 瓦楞
-  GetColorBoxSettingAfterProcessCorrugatedListData() {
+  GetColorBoxSettingAfterProcessCorrugatedListData(id) {
     return request({
-      url: `api/QuotationSystem/GetColorBoxSettingAfterProcessCorrugatedListData`,
+      url: `/Ele_ColorBoxSetting_AfterProcess_Corrugated/ListData?uGuid1=${id}`,
       method: 'GET'
     })
   },
   // 获取彩盒设置-后工设置 瓦楞 保存
   SaveColorBoxSettingAfterProcessCorrugated(data) {
     return request({
-      url: `api/QuotationSystem/SaveColorBoxSettingAfterProcessCorrugated`,
+      url: `/Ele_ColorBoxSetting_AfterProcess_Corrugated/SaveData`,
       method: 'POST',
       data
     })

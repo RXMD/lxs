@@ -27,7 +27,7 @@
                 </el-table-column>
                 <el-table-column align="center" prop="dPrice" label="单价">
                   <template slot-scope="scope">
-                    <el-input v-model="scope.row.dPrice" v-Empty-Zero v-Float size="mini" oninput="value=value.replace(/[^0-9.]/g,'')" />
+                    <el-input v-model.number="scope.row.dPrice" v-Empty-Zero v-Float size="mini" oninput="value=value.replace(/[^0-9.]/g,'')" />
                   </template>
                 </el-table-column>
                 <el-table-column align="center" prop="sUnitName" label="单位">
@@ -40,12 +40,12 @@
                 </el-table-column>
                 <el-table-column align="center" prop="dMinAmount" label="最低消费开机费（元）">
                   <template slot-scope="scope">
-                    <el-input v-model="scope.row.dMinAmount" v-Empty-Zero v-Float size="mini" oninput="value=value.replace(/[^0-9.]/g,'')" />
+                    <el-input v-model.number="scope.row.dMinAmount" v-Empty-Zero v-Float size="mini" oninput="value=value.replace(/[^0-9.]/g,'')" />
                   </template>
                 </el-table-column>
                 <el-table-column align="center" prop="dMinPrice" label="每张(个)最低单价（元）">
                   <template slot-scope="scope">
-                    <el-input v-model="scope.row.dMinPrice" v-Empty-Zero v-Float size="mini" oninput="value=value.replace(/[^0-9.]/g,'')" />
+                    <el-input v-model.number="scope.row.dMinPrice" v-Empty-Zero v-Float size="mini" oninput="value=value.replace(/[^0-9.]/g,'')" />
                   </template>
                 </el-table-column>
               </el-table-column>
@@ -68,7 +68,7 @@
                 </template>
                 <el-table-column align="center" prop="iOrder" label="排序" width="60">
                   <template slot-scope="scope">
-                    <el-input v-model="scope.row.iOrder" v-Int size="mini" />
+                    <el-input v-model.number="scope.row.iOrder" v-Int size="mini" />
                   </template>
                 </el-table-column>
 
@@ -104,17 +104,17 @@
                 <el-table-column label="名称" prop="sName" align="center" width="140" />
                 <el-table-column align="center" prop="dThickness" label="厚度">
                   <template slot-scope="scope">
-                    <el-input v-model="scope.row.dThickness" v-Empty-Zero v-Float size="mini" oninput="value=value.replace(/[^0-9.]/g,'')" />
+                    <el-input v-model.number="scope.row.dThickness" v-Empty-Zero v-Float size="mini" oninput="value=value.replace(/[^0-9.]/g,'')" />
                   </template>
                 </el-table-column>
                 <el-table-column align="center" prop="dDensity" label="密度">
                   <template slot-scope="scope">
-                    <el-input v-model="scope.row.dDensity" v-Empty-Zero v-Float size="mini" oninput="value=value.replace(/[^0-9.]/g,'')" />
+                    <el-input v-model.number="scope.row.dDensity" v-Empty-Zero v-Float size="mini" oninput="value=value.replace(/[^0-9.]/g,'')" />
                   </template>
                 </el-table-column>
                 <el-table-column align="center" prop="dPrice" label="单价(元/公斤)">
                   <template slot-scope="scope">
-                    <el-input v-model="scope.row.dPrice" v-Empty-Zero v-Float size="mini" oninput="value=value.replace(/[^0-9.]/g,'')" />
+                    <el-input v-model.number="scope.row.dPrice" v-Empty-Zero v-Float size="mini" oninput="value=value.replace(/[^0-9.]/g,'')" />
                   </template>
                 </el-table-column>
                 <el-table-column align="center" label="操作" width="120" fixed="right">
@@ -166,7 +166,7 @@ export default {
       this.tableData = []
 
       this.loading = true
-      Api.GetColorBoxSettingAfterProcessPastingFilmListData()
+      Api.GetColorBoxSettingAfterProcessPastingFilmListData(this.uGuid1)
         .then(res => {
           if (res.code == 200) {
             this.tableData =

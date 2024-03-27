@@ -21,7 +21,7 @@
             >
               <el-table-column align="center" prop="iOrder" label="排序" width="60">
                 <template slot-scope="scope">
-                  <el-input v-model="scope.row.iOrder" v-Int size="mini" />
+                  <el-input v-model.number="scope.row.iOrder" v-Int size="mini" />
                 </template>
               </el-table-column>
               <!-- <el-table-column align="center" prop="bStandard" label="通用版" width="100">
@@ -38,12 +38,12 @@
               <el-table-column align="center" label="手提绳人工">
                 <el-table-column align="center" prop="dHandRopeArtificialPrice" label="单价">
                   <template slot-scope="scope">
-                    <el-input v-model="scope.row.dHandRopeArtificialPrice" v-Empty-Zero v-Float size="mini" oninput="value=value.replace(/[^0-9.]/g,'')" />
+                    <el-input v-model.number="scope.row.dHandRopeArtificialPrice" v-Empty-Zero v-Float size="mini" oninput="value=value.replace(/[^0-9.]/g,'')" />
                   </template>
                 </el-table-column>
                 <el-table-column align="center" prop="dMinHandRopeArtificialAmount" label="最低消费">
                   <template slot-scope="scope">
-                    <el-input v-model="scope.row.dMinHandRopeArtificialAmount" v-Empty-Zero v-Float size="mini" oninput="value=value.replace(/[^0-9.]/g,'')" />
+                    <el-input v-model.number="scope.row.dMinHandRopeArtificialAmount" v-Empty-Zero v-Float size="mini" oninput="value=value.replace(/[^0-9.]/g,'')" />
                   </template>
                 </el-table-column>
               </el-table-column>
@@ -55,12 +55,12 @@
                 </el-table-column>
                 <el-table-column align="center" prop="dHandRopeMaterialPrice" label="单价">
                   <template slot-scope="scope">
-                    <el-input v-model="scope.row.dHandRopeMaterialPrice" v-Empty-Zero v-Float size="mini" oninput="value=value.replace(/[^0-9.]/g,'')" />
+                    <el-input v-model.number="scope.row.dHandRopeMaterialPrice" v-Empty-Zero v-Float size="mini" oninput="value=value.replace(/[^0-9.]/g,'')" />
                   </template>
                 </el-table-column>
                 <el-table-column align="center" prop="dMinHandRopeMaterialAmount" label="最低消费">
                   <template slot-scope="scope">
-                    <el-input v-model="scope.row.dMinHandRopeMaterialAmount" v-Empty-Zero v-Float size="mini" oninput="value=value.replace(/[^0-9.]/g,'')" />
+                    <el-input v-model.number="scope.row.dMinHandRopeMaterialAmount" v-Empty-Zero v-Float size="mini" oninput="value=value.replace(/[^0-9.]/g,'')" />
                   </template>
                 </el-table-column>
               </el-table-column>
@@ -72,7 +72,7 @@
               <el-table-column align="center" label="操作" width="80" fixed="right">
                 <template slot-scope="scope">
                   <el-button size="mini" type="text" @click="copy(scope.row, scope.$index)">复制</el-button>
-                  <el-button size="mini" type="text" class="YZ-table-delBtn" @click="remove(scope.row, scope.$index)">删除</el-button>
+                  <el-button size="mini" type="text" class="YZ-table-delBtn" @click="remove(scope.row, scope.$index, 'Ele_ColorBoxSetting_AfterProcess_HandRope')">删除</el-button>
                 </template>
               </el-table-column>
             </el-table>
@@ -100,7 +100,7 @@ export default {
     getList() {
       this.tableData = []
       this.loading = true
-      Api.GetColorBoxSettingAfterProcessHandRopeListData()
+      Api.GetColorBoxSettingAfterProcessHandRopeListData(this.uGuid1)
         .then(res => {
           if (res.code == 200) {
             this.tableData =

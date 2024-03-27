@@ -7,17 +7,32 @@
 }
 
 @mixin scrollBar {
-  &::-webkit-scrollbar-track-piece {
-    background: #d3dce6;
-  }
+  // &::-webkit-scrollbar-track-piece {
+  //   background: #d3dce6;
+  // }
 
+  // &::-webkit-scrollbar {
+  //   width: 6px;
+  // }
+
+  // &::-webkit-scrollbar-thumb {
+  //   background: #99a9bf;
+  //   border-radius: 20px;
+  // }
   &::-webkit-scrollbar {
     width: 6px;
+    height: 6px;
+    background: transparent;
   }
-
   &::-webkit-scrollbar-thumb {
-    background: #99a9bf;
-    border-radius: 20px;
+    background: transparent;
+    border-radius: 4px;
+  }
+  &:hover::-webkit-scrollbar-thumb {
+    background: hsla(0, 0%, 53%, 0.4);
+  }
+  &:hover::-webkit-scrollbar-track {
+    background: hsla(0, 0%, 53%, 0.1);
   }
 }
 

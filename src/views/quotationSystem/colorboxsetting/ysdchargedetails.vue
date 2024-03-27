@@ -21,18 +21,18 @@
               <el-table-column align="center" prop="sName2" label="名称" />
               <el-table-column align="center" prop="dArtificialPrice" label="单价(元/m)">
                 <template slot-scope="scope">
-                  <el-input v-model="scope.row.dArtificialPrice" v-Empty-Zero v-Float size="mini" oninput="value=value.replace(/[^0-9.]/g,'')" />
+                  <el-input v-model.number="scope.row.dArtificialPrice" v-Empty-Zero v-Float size="mini" oninput="value=value.replace(/[^0-9.]/g,'')" />
                 </template>
               </el-table-column>
               <el-table-column align="center" prop="dArtificialMinPieceAmount" label="每条最低（元）	">
                 <template slot-scope="scope">
-                  <el-input v-model="scope.row.dArtificialMinPieceAmount" v-Empty-Zero v-Float size="mini" oninput="value=value.replace(/[^0-9.]/g,'')" />
+                  <el-input v-model.number="scope.row.dArtificialMinPieceAmount" v-Empty-Zero v-Float size="mini" oninput="value=value.replace(/[^0-9.]/g,'')" />
                 </template>
               </el-table-column>
 
               <el-table-column align="center" prop="dArtificialMinAmount" label="最低消费（元）">
                 <template slot-scope="scope">
-                  <el-input v-model="scope.row.dArtificialMinAmount" v-Empty-Zero v-Float size="mini" oninput="value=value.replace(/[^0-9.]/g,'')" />
+                  <el-input v-model.number="scope.row.dArtificialMinAmount" v-Empty-Zero v-Float size="mini" oninput="value=value.replace(/[^0-9.]/g,'')" />
                 </template>
               </el-table-column>
               <el-table-column align="center" prop="sArtificialCalcType" label="计算方式">
@@ -62,7 +62,7 @@
                 </template>
                 <el-table-column align="center" prop="iOrder" label="排序" width="60">
                   <template slot-scope="scope">
-                    <el-input v-model="scope.row.iOrder" v-Int size="mini" />
+                    <el-input v-model.number="scope.row.iOrder" v-Int size="mini" />
                   </template>
                 </el-table-column>
 
@@ -73,17 +73,17 @@
                 </el-table-column>
                 <el-table-column align="center" prop="dWidth" label="宽度(mm)">
                   <template slot-scope="scope">
-                    <el-input v-model="scope.row.dWidth" v-Empty-Zero v-Float size="mini" oninput="value=value.replace(/[^0-9.]/g,'')" />
+                    <el-input v-model.number="scope.row.dWidth" v-Empty-Zero v-Float size="mini" oninput="value=value.replace(/[^0-9.]/g,'')" />
                   </template>
                 </el-table-column>
                 <el-table-column align="center" prop="dPrice" label="单价(元/米)">
                   <template slot-scope="scope">
-                    <el-input v-model="scope.row.dPrice" v-Empty-Zero v-Float size="mini" oninput="value=value.replace(/[^0-9.]/g,'')" />
+                    <el-input v-model.number="scope.row.dPrice" v-Empty-Zero v-Float size="mini" oninput="value=value.replace(/[^0-9.]/g,'')" />
                   </template>
                 </el-table-column>
                 <el-table-column align="center" prop="dMinAmount" label="最低消费(元)">
                   <template slot-scope="scope">
-                    <el-input v-model="scope.row.dMinAmount" v-Empty-Zero v-Float size="mini" oninput="value=value.replace(/[^0-9.]/g,'')" />
+                    <el-input v-model.number="scope.row.dMinAmount" v-Empty-Zero v-Float size="mini" oninput="value=value.replace(/[^0-9.]/g,'')" />
                   </template>
                 </el-table-column>
                 <el-table-column align="center" label="操作" width="120" fixed="right">
@@ -121,7 +121,7 @@ export default {
           dArtificialPrice: 0.01,
           dArtificialMinPieceAmount: 0,
           dArtificialMinAmount: 150,
-          sArtificialCalcType: 1
+          sArtificialCalcType: '1'
         }
       ]
     }
@@ -132,7 +132,7 @@ export default {
     getList() {
       this.tableData = []
       this.loading = true
-      Api.GetColorBoxSettingAfterProcessEasyTearTapeListData()
+      Api.GetColorBoxSettingAfterProcessEasyTearTapeListData(this.uGuid1)
         .then(res => {
           if (res.code == 200) {
             this.tableData =

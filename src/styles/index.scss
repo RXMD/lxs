@@ -138,7 +138,12 @@ aside {
 .text-center {
   text-align: center
 }
-
+.el-table--scrollable-y .el-table__body-wrapper {
+  @include scrollBar;
+}
+.el-table--scrollable-x .el-table__body-wrapper {
+  @include scrollBar;
+}
 .sub-navbar {
   height: 50px;
   line-height: 50px;

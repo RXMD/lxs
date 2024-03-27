@@ -1872,7 +1872,7 @@
 </template>
 
 <script>
-// import Api from '@/api/quotationSystem/basicData';
+import Api from '@/api/quotationSystem/basicData'
 import { BoxTypeOptions, OtherParameters, imgsData } from './data.js'
 import { deepClone, sortOrder, guid, getQueryObject } from '@/utils'
 const postPressProcessFields = [
@@ -2343,7 +2343,7 @@ export default {
       this.buckleBottomBoxCalcResultCostDetailMoreAfterDetail = ''
       if (row.uMachineGuid2) {
         Api.GetBoxTypeQuotationBuckleBottomBoxCostDetailMoreAfterDetail(this.form.uGuid1, row.sOptimalName, row.uMachineGuid2).then(res => {
-          if (res.code == 200) {
+          if (res.code === 200) {
             this.buckleBottomBoxCalcResultCostDetailMoreAfterDetail = `${row.sOptimalName}（${row.dMachineLength}*${row.dMachineWidth}）后工费用：${res.msg}`
           }
         })
@@ -2361,8 +2361,8 @@ export default {
 
         if (isCheck) {
           text = text.replace(regex, (match, key) => {
-            if (key == 'sAfterProcessNailBoxType') {
-              return form[key] == '1' ? '单钉' : '双钉'
+            if (key === 'sAfterProcessNailBoxType') {
+              return form[key] === '1' ? '单钉' : '双钉'
             } else {
               return form[key]
             }
@@ -2451,7 +2451,7 @@ export default {
       if (['checkbox&input', 'checkbox&select'].includes(item.type) && !v) {
         item.ovalue = ''
         this.$set(this.form, item.oField, '')
-        if (item.type == 'checkbox&select') {
+        if (item.type === 'checkbox&select') {
           item.ovalue2 = ''
           this.$set(this.form, item.oField2, '')
         }
@@ -2461,25 +2461,25 @@ export default {
         '易撕拉条': 'Ele_ColorBoxSetting_AfterProcess_EasyTearTape'
       }
       // 取得下拉选项数据赋值
-      if (item.type == 'checkbox&select' && Object.keys(names).includes(item.label) && v) {
+      if (item.type === 'checkbox&select' && Object.keys(names).includes(item.label) && v) {
         this.getBuckleBottomBoxAfterProcessData(names[item.label], item.label)
       }
       // 选中勾选项需要从新set，否则可能不渲染选中值
-      if (item.type == 'checkbox&select') {
+      if (item.type === 'checkbox&select') {
         const obj = {
           '双面胶': ['sOtherParameterDoubleSidedStrip', 'dOtherParameterDoubleSidedStrip'],
           '易撕拉条': ['sOtherParameterEasyTearStrip', 'dOtherParameterEasyTearStrip']
         }
         const arr = ['ovalue', 'ovalue2']
         const otherParameters = this.otherParameters[this.form.sBoxName]
-        const paramsIndex = otherParameters.findIndex(e => e.label == item.label)
+        const paramsIndex = otherParameters.findIndex(e => e.label === item.label)
         // 取得对应下拉框绑定名称
-        const valIndex = obj[item.label].findIndex(e => field == e)
+        const valIndex = obj[item.label].findIndex(e => field === e)
         const valName = obj[item.label][valIndex]
         this.$set(otherParameters[paramsIndex], arr[valIndex], v)
         // 易撕拉条同步选项,单位和规格对应
         if (valName == 'sOtherParameterEasyTearStrip') {
-          const valueIndex = otherParameters[paramsIndex].options.findIndex(e => e.value == v)
+          const valueIndex = otherParameters[paramsIndex].options.findIndex(e => e.value === v)
           this.$set(this.form, 'dOtherParameterEasyTearStrip', otherParameters[paramsIndex].options2[valueIndex].value)
           this.$set(otherParameters[paramsIndex], 'ovalue2', otherParameters[paramsIndex].options2[valueIndex].value)
         }
@@ -2507,8 +2507,8 @@ export default {
         this.$set(this.form, 'dOtherParameterInnerCoverWidth', val - 1)
         // 把值同步到输入框
         const otherParameters = this.otherParameters[this.form.sBoxName]
-        const index = otherParameters.findIndex(e => e.label == '外盖宽')
-        const index2 = otherParameters.findIndex(e => e.label == '内盖宽')
+        const index = otherParameters.findIndex(e => e.label === '外盖宽')
+        const index2 = otherParameters.findIndex(e => e.label === '内盖宽')
         this.$set(otherParameters[index], 'value', val)
         this.$set(otherParameters[index2], 'value', val - 1)
       }
@@ -2516,10 +2516,10 @@ export default {
     // 获取其他参数 易撕拉条，双面胶选项数据 根据tablename
     getBuckleBottomBoxAfterProcessData(tableName, label) {
       Api.GetBoxTypeQuotationBuckleBottomBoxAfterProcessDataSource(tableName).then(res => {
-        if (res.code == 200) {
+        if (res.code === 200) {
           // 把值同步到下拉框
           const otherParameters = this.otherParameters[this.form.sBoxName]
-          const index = otherParameters.findIndex(e => e.label == label)
+          const index = otherParameters.findIndex(e => e.label === label)
           const data = res.data
           // 需要匹配对应的取值
           const obj = {
@@ -2551,7 +2551,7 @@ export default {
     // 小类选项数据 @params getStrArr 是否返回字符串数组
     classParams(getStrArr = false) {
       // classParams.find(e => e.name == "str").params.includes('str')
-      let data = this.typeParams().find(e => e.name == this.form.sBoxName).params
+      let data = this.typeParams().find(e => e.name === this.form.sBoxName).params
       if (getStrArr) {
         data = data.map(e => e.name)
       }
@@ -2562,7 +2562,7 @@ export default {
       if (this.form.sBoxName === '拼图') {
         console.log('this.form.sBoxName: ', this.form.sBoxName)
         console.log('1str: ', str)
-        if (str == '背纸') {
+        if (str === '背纸') {
           console.log('str: ', str)
           return this.radioType === '三层拼图'
         }
@@ -2584,7 +2584,7 @@ export default {
     },
     //  列表项是否拥有额外参数 @params paramsName:列表项名称，ExtraParams:列表项额外参数
     haveExtraParams(paramsName, extraParams) {
-      return this.classParams().find(e => e.name == paramsName)?.params.includes(extraParams)
+      return this.classParams().find(e => e.name === paramsName)?.params.includes(extraParams)
     },
     // 添加每套数量
     addEveryCount() {

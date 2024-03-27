@@ -11,7 +11,7 @@
         <div class="recent_list">
           <h5>Recent Chat</h5>
           <ul class="avtorList">
-            <li v-for="item in filterOnlineList">
+            <li v-for="item in filterOnlineList" :key="item.id">
               <el-badge :class="{ item: item.IsOnline }">
                 <el-tooltip class="item" effect="dark" :content="item.UserName" placement="top-center">
                   <img src="../../assets/image/avtor.png" alt="" @click="handleClick(item)">
@@ -100,6 +100,7 @@ import Emoji from './emoji.vue'
 import Msg from './msg.vue'
 import { parseTime } from '@/utils'
 import * as signalR from '@microsoft/signalr'
+import { getToken } from '@/utils/auth'
 export default {
   name: 'Chat',
   components: {
@@ -153,7 +154,6 @@ export default {
       }
     },
     chooseImg(type) {
-      const that = this
       const input = document.createElement('input')
       input.type = 'file'
       if (type === 2) {
@@ -164,7 +164,7 @@ export default {
         if (!input.files || !input.files.length) return
         const file = input.files[0]
         console.log(file)
-        const { name, size, type } = file
+        const { size } = file
         if (size > 1024 * 1024 * 4) {
           this.$message({
             message: '文件超过4M限制，请重新选择',
@@ -179,12 +179,17 @@ export default {
         // 发送上传请求
         axios
           .post(
-            'http://192.168.1.56:5097/Res/Resource/UploadFolder',
+            'http://192.168.1.157:5097/Res/Resource/UploadFolder',
             formData,
-            'multipart/form-data;charset=UTF-8'
+            {
+              headers: {
+                'Content-Type': 'multipart/form-data;charset=UTF-8',
+                'Authorization': getToken() ? `Bearer ${getToken()}` : ''
+              }
+            }
           )
           .then((res) => {
-            if (res && res.data.code == 200) {
+            if (res && res.data.code === 200) {
               const { domainName, visitPath, fileName, extendName } =
                 res.data.data
               const imgType = ['.png', '.jpg', '.jpeg', '.gif']
@@ -195,7 +200,7 @@ export default {
               }
             }
           })
-          .catch((error) => {
+          .catch(() => {
             this.$message({
               message: '图片发送失败，请重试',
               type: 'warning'
@@ -250,7 +255,7 @@ export default {
       })
     },
     handleKeyCode(event) {
-      if (event.keyCode == 13) {
+      if (event.keyCode === 13) {
         if (!event.ctrlKey) {
           event.preventDefault()
           this.sendMsg(false, false)
@@ -264,7 +269,7 @@ export default {
       // console.log(new signalR)
       console.log('---------------------1、建立网络连接-----------------')
       this.connection = new signalR.HubConnectionBuilder()
-        .withUrl('http://192.168.1.56:5258/Chat')
+        .withUrl('http://192.168.1.157:5258/Chat')
         .build()
       console.log(
         '---------------------2、绑定服务端推送消息方法-----------------'
@@ -325,7 +330,7 @@ export default {
           if (
             this.$refs.msgListRef.scrollHeight -
             this.$refs.msgListRef.scrollTop <
-            500
+            800
           ) {
             this.$nextTick(() => {
               this.$refs.msgListRef.scrollTop =
