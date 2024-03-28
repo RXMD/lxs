@@ -2,7 +2,7 @@
   <div ref="rightPanel" :class="{show:show}" class="rightPanel-container">
     <div class="rightPanel-background" />
     <div class="rightPanel">
-      <div class="handle-button" :style="{'top':buttonTop+'px','background-color':theme}" @click="show=!show">
+      <div class="handle-button" :style="{'top':buttonTop+'px','background-color':theme}" v-if="false" @click="show=!show">
         <i :class="show?'el-icon-close':'el-icon-setting'" />
       </div>
       <div class="rightPanel-items">
@@ -30,7 +30,7 @@ export default {
   data() {
     return {
       show: false,
-      mouseTop: 0
+      mouseTop: 250
     }
   },
   computed: {
@@ -52,12 +52,36 @@ export default {
   },
   mounted() {
     this.insertToBody()
+    // const draggableElement = document.querySelector('.handle-button');
+    // draggableElement.addEventListener('mousedown', (e) => {
+    //     // 记录点击时的位置
+    //     let startX = e.clientX;
+    //     let startY = e.clientY;
+    //     // 计算元素相对于屏幕的位置
+    //     let offsetX = draggableElement.offsetLeft;
+    //     let offsetY = draggableElement.offsetTop;
+    
+    //     // 开始拖动
+    //     document.addEventListener('mousemove', (e) => {
+    //       const dx = e.clientX - startX;
+    //       const dy = e.clientY - startY;
+    //       // 更新元素位置
+    //       // draggableElement.style.left = `${offsetX + dx}px`;
+    //       this.mouseTop = `${offsetY + dy}px`;
+    //     });
+    //     // 结束拖动
+    //     document.addEventListener('mouseup', this.mouseUpHandler);
+    // })
   },
   beforeDestroy() {
     const elx = this.$refs.rightPanel
     elx.remove()
   },
   methods: {
+    // mouseUpHandler () {
+    //   document.removeEventListener('mousemove', this.mouseMoveHandler);
+    //   document.removeEventListener('mouseup', mouseUpHandler)
+    // },
     addEventClick() {
       window.addEventListener('click', this.closeSidebar)
     },

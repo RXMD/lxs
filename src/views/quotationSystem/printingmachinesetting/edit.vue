@@ -28,37 +28,37 @@
         </el-table-column>
         <el-table-column label="咬口" prop="dGripperEdge" width="140">
           <template slot-scope="scope">
-            <el-input v-model.number="scope.row.dGripperEdge" v-Float @change="value => changeFormField(value, 'dGripperEdge')" />
+            <el-input v-model="scope.row.dGripperEdge" v-Empty-Zero v-Float @change="value => changeFormField(value, 'dGripperEdge')" />
           </template>
         </el-table-column>
         <el-table-column prop="dMaxMachineLength" label="最大上机长">
           <template slot-scope="scope">
-            <el-input v-model.number="scope.row.dMaxMachineLength" v-Float @change="value => changeFormField(value, 'dMaxMachineLength')" />
+            <el-input v-model="scope.row.dMaxMachineLength" v-Empty-Zero v-Float @change="value => changeFormField(value, 'dMaxMachineLength')" />
           </template>
         </el-table-column>
         <el-table-column prop="dMaxMachineWidthe" label="最大上机宽">
           <template slot-scope="scope">
-            <el-input v-model.number="scope.row.dMaxMachineWidth" v-Float @change="value => changeFormField(value, 'dMaxMachineWidth')" />
+            <el-input v-model="scope.row.dMaxMachineWidth" v-Empty-Zero v-Float @change="value => changeFormField(value, 'dMaxMachineWidth')" />
           </template>
         </el-table-column>
         <el-table-column prop="dMinMachineLength" label="最小上机长">
           <template slot-scope="scope">
-            <el-input v-model.number="scope.row.dMinMachineLength" v-Float @change="value => changeFormField(value, 'dMinMachineLength')" />
+            <el-input v-model="scope.row.dMinMachineLength" v-Empty-Zero v-Float @change="value => changeFormField(value, 'dMinMachineLength')" />
           </template>
         </el-table-column>
         <el-table-column prop="dMinMachineWidth" label="最小上机宽">
           <template slot-scope="scope">
-            <el-input v-model.number="scope.row.dMinMachineWidth" v-Float @change="value => changeFormField(value, 'dMinMachineWidth')" />
+            <el-input v-model="scope.row.dMinMachineWidth" v-Empty-Zero v-Float @change="value => changeFormField(value, 'dMinMachineWidth')" />
           </template>
         </el-table-column>
         <el-table-column prop="dMinWeight" label="最小克重">
           <template slot-scope="scope">
-            <el-input v-model.number="scope.row.dMinWeight" v-Float @change="value => changeFormField(value, 'dMinWeight')" />
+            <el-input v-model="scope.row.dMinWeight" v-Empty-Zero v-Float @change="value => changeFormField(value, 'dMinWeight')" />
           </template>
         </el-table-column>
         <el-table-column prop="dMaxWeight" label="最大克重">
           <template slot-scope="scope">
-            <el-input v-model.number="scope.row.dMaxWeight" v-Float @change="value => changeFormField(value, 'dMaxWeight')" />
+            <el-input v-model="scope.row.dMaxWeight" v-Empty-Zero v-Float @change="value => changeFormField(value, 'dMaxWeight')" />
           </template>
         </el-table-column>
         <el-table-column prop="bUVPrinting" label="是否UV">
@@ -94,7 +94,7 @@
             开机费
           </template>
           <template slot-scope="scope">
-            <el-input v-model.number="scope.row.dStartupAmount" v-Float size="mini" />
+            <el-input v-model="scope.row.dStartupAmount" v-Empty-Zero v-Float size="mini" />
           </template>
         </el-table-column>
         <el-table-column prop="dPlateAmount" label="版费（元）">
@@ -103,7 +103,7 @@
             版费（元）
           </template>
           <template slot-scope="scope">
-            <el-input v-model.number="scope.row.dPlateAmount" v-Float size="mini" />
+            <el-input v-model="scope.row.dPlateAmount" v-Empty-Zero v-Float size="mini" />
           </template>
         </el-table-column>
         <el-table-column prop="iImpression" label="包含印次">
@@ -123,26 +123,26 @@
 
           <el-table-column prop="dImpressionPrice" label="（元/千印）">
             <template slot-scope="scope">
-              <el-input v-model.number="scope.row.dImpressionPrice" v-Float size="mini" />
+              <el-input v-model="scope.row.dImpressionPrice" v-Empty-Zero v-Float size="mini" />
             </template>
           </el-table-column>
         </el-table-column>
         <el-table-column>
           <template slot="header">
-            <input v-model.number="Ele_PrintMachineSetting_Detail_header.iImpression2" v-Float class="input-box" type="number" @change="changeiImpression">
+            <input v-model.number="Ele_PrintMachineSetting_Detail_header.iImpression2" v-Empty-Zero v-Float class="input-box" type="number" @change="changeiImpression">
             印次内
           </template>
 
           <el-table-column prop="dImpressionPrice2" label="（元/千印）">
             <template slot-scope="scope">
-              <el-input v-model.number="scope.row.dImpressionPrice2" v-Float size="mini" />
+              <el-input v-model.number="scope.row.dImpressionPrice2" v-Empty-Zero v-Float size="mini" />
             </template>
           </el-table-column>
         </el-table-column>
         <el-table-column :label="Ele_PrintMachineSetting_Detail_header.iImpression3 ? Ele_PrintMachineSetting_Detail_header.iImpression3 + '印次以上' : '' + '印次以上'">
           <el-table-column prop="dImpressionPrice3" label="（元/千印）">
             <template slot-scope="scope">
-              <el-input v-model.number="scope.row.dImpressionPrice3" v-Float size="mini" type="number" />
+              <el-input v-model.number="scope.row.dImpressionPrice3" v-Empty-Zero v-Float size="mini" type="number" />
             </template>
           </el-table-column>
         </el-table-column>

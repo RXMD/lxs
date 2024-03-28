@@ -435,7 +435,7 @@ export default {
     parperWeights() {
       const paperWeightList = this.parperTypeData.paperWeightList || []
       return paperWeightList.filter(item => {
-        return item.uGuid1 == this.form.sPaperName
+        return item.sPaperName == this.form.sPaperName
       })
     }
   },

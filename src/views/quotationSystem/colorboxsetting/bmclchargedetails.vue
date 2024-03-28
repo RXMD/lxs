@@ -26,11 +26,11 @@
               <el-col :span="20">
                 <div class="grid-content bg-purple-dark d-flex fz-12 ai-c">
                   尺寸超过
-                  <el-input v-model.number="tableHeader.dLength" v-Empty-Zero v-Float style="width: 80px" oninput="value=value.replace(/[^0-9.]/g,'')" size="mini" />
+                  <el-input v-model="tableHeader.dLength" v-Empty-Zero v-Float style="width: 80px" oninput="value=value.replace(/[^0-9.]/g,'')" size="mini" />
                   x
-                  <el-input v-model.number="tableHeader.dWidth" v-Empty-Zero v-Float style="width: 80px" oninput="value=value.replace(/[^0-9.]/g,'')" size="mini" />
+                  <el-input v-model="tableHeader.dWidth" v-Empty-Zero v-Float style="width: 80px" oninput="value=value.replace(/[^0-9.]/g,'')" size="mini" />
                   ,单价乘以
-                  <el-input v-model.number="tableHeader.dPriceTake" v-Empty-Zero v-Float style="width: 80px" oninput="value=value.replace(/[^0-9.]/g,'')" size="mini" />
+                  <el-input v-model="tableHeader.dPriceTake" v-Empty-Zero v-Float style="width: 80px" oninput="value=value.replace(/[^0-9.]/g,'')" size="mini" />
                 </div>
               </el-col>
             </el-row>
@@ -74,7 +74,7 @@
 
                 <el-table-column v-if="tableHeader.iPriceInterval > 1" align="center">
                   <template slot-scope="scope">
-                    <el-input v-model.number="scope.row.dPriceInterval1" v-Empty-Zero v-Float class="w-100" oninput="value=value.replace(/[^0-9.]/g,'')" size="mini" />
+                    <el-input v-model="scope.row.dPriceInterval1" v-Empty-Zero v-Float class="w-100" oninput="value=value.replace(/[^0-9.]/g,'')" size="mini" />
                   </template>
                   <template slot="header">
                     <input v-model.number="tableHeader.iPriceBetween1" v-Int size="mini" class="small-input w-100 e-input" @change="inputChange">
@@ -101,7 +101,7 @@
                 </el-table-column>
                 <el-table-column v-if="tableHeader.iPriceInterval > 4" align="center">
                   <template slot-scope="scope">
-                    <el-input v-model.number="scope.row.dPriceInterval4" v-Empty-Zero v-Float class="w-100" oninput="value=value.replace(/[^0-9.]/g,'')" size="mini" />
+                    <el-input v-model="scope.row.dPriceInterval4" v-Empty-Zero v-Float class="w-100" oninput="value=value.replace(/[^0-9.]/g,'')" size="mini" />
                   </template>
                   <template slot="header">
                     <input v-model.number="tableHeader.iPriceBetween4" v-Int size="mini" class="small-input w-100 e-input" @change="inputChange">
@@ -110,17 +110,17 @@
                 </el-table-column>
                 <el-table-column align="center" :label="tableHeader.iPriceBetween5 + '以上'">
                   <template slot-scope="scope">
-                    <el-input v-model.number="scope.row.dPriceInterval5" v-Empty-Zero v-Float class="w-100" oninput="value=value.replace(/[^0-9.]/g,'')" size="mini" />
+                    <el-input v-model="scope.row.dPriceInterval5" v-Empty-Zero v-Float class="w-100" oninput="value=value.replace(/[^0-9.]/g,'')" size="mini" />
                   </template>
                 </el-table-column>
                 <el-table-column align="center" prop="dStartupAmount" label="最低消费(开机费)（元）">
                   <template slot-scope="scope">
-                    <el-input v-model.number="scope.row.dStartupAmount" v-Empty-Zero v-Float class="w-100" oninput="value=value.replace(/[^0-9.]/g,'')" size="mini" />
+                    <el-input v-model="scope.row.dStartupAmount" v-Empty-Zero v-Float class="w-100" oninput="value=value.replace(/[^0-9.]/g,'')" size="mini" />
                   </template>
                 </el-table-column>
                 <el-table-column align="center" prop="dMinPrice" label="每张(个)最低单价（元）">
                   <template slot-scope="scope">
-                    <el-input v-model.number="scope.row.dMinPrice" v-Empty-Zero v-Float class="w-100" oninput="value=value.replace(/[^0-9.]/g,'')" size="mini" />
+                    <el-input v-model="scope.row.dMinPrice" v-Empty-Zero v-Float class="w-100" oninput="value=value.replace(/[^0-9.]/g,'')" size="mini" />
                   </template>
                 </el-table-column>
               </el-table-column>

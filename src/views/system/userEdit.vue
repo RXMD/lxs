@@ -30,8 +30,8 @@
       </el-form-item>
       <el-form-item label="性别" prop="sex" class="sexRadio">
         <el-radio-group v-model="form.sex">
-          <el-radio label="男" />
-          <el-radio label="女" />
+          <el-radio :label="1">男</el-radio>
+          <el-radio :label="0">女</el-radio>
         </el-radio-group>
       </el-form-item>
     </el-form>
@@ -79,7 +79,6 @@ export default {
       if (n) {
         if (this.type === 'edit') {
           this.form = this.currentItem
-          this.form.sex = this.form.sexText
         }
       }
     }
@@ -103,7 +102,7 @@ export default {
             userName: this.form.userName,
             realName: this.form.realName,
             eMail: this.form.eMail,
-            sex: this.form.sex === '女' ? 0 : 1,
+            sex: this.form.sex,
             passWord: this.form.passWord
           }
           if (this.form.id) {

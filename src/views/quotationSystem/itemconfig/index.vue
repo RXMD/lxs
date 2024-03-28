@@ -53,6 +53,7 @@ export default {
       listLoading: true,
       tableData: [],
       currentPage4: 4,
+      currentSize: 20,
       showDidlog: false,
       titleText: '',
       currentItem: {},
@@ -62,7 +63,6 @@ export default {
   },
   created() {
     this.initData()
-    this.getMenuList()
   },
 
   methods: {
@@ -71,16 +71,6 @@ export default {
     },
     handleCurrentChange(val) {
       console.log(`当前页: ${val}`)
-    },
-    getMenuList() {
-      // getSystemMenuList('false', 'false').then(res => {
-      //     if (res.code == 200) {
-
-      //         this.menuList = res.data.list;
-
-      //     }
-      //     //resolve(routerList)
-      // });
     },
     initData() {
       this.getList()

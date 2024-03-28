@@ -80,6 +80,10 @@ export default {
     download(data) {
       const params = JSON.parse(data)
       const { domainName, visitPath, fileName, extendName } = params
+      if (extendName === '.pdf') {
+        window.open(`${domainName}${visitPath}${fileName}${extendName}`);
+        return
+      }
       const iframe = document.createElement('iframe')
       iframe.style.display = 'none' // 防止影响页面
       iframe.style.height = 0 // 防止影响页面
@@ -89,7 +93,6 @@ export default {
         // iframe.remove();
         document.body.removeChild(iframe)
       }, 100)
-      // window.open(`${domainName}${visitPath}${fileName}${extendName}`);
     },
     getFile(data, type) {
       try {

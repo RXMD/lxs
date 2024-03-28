@@ -22,7 +22,7 @@
         <el-table-column width="40" label="序号" type="index" />
         <el-table-column label="排序" prop="iOrder" width="60">
           <template slot-scope="scope">
-            <el-input v-model="scope.row.iOrder" v-Int />
+            <el-input v-model.number="scope.row.iOrder" v-Int />
           </template>
         </el-table-column>
         <el-table-column prop="sMachineType" label="机台类型" width="100">
@@ -202,12 +202,12 @@
 
         <el-table-column prop="iThousandStretchQty" label="印刷每千放数（张）">
           <template slot-scope="scope">
-            <el-input v-model="scope.row.iThousandStretchQty" v-Int size="mini" />
+            <el-input v-model.number="scope.row.iThousandStretchQty" v-Int size="mini" />
           </template>
         </el-table-column>
         <el-table-column prop="iAfterPrintingLossQty" label="每道后加工（张）">
           <template slot-scope="scope">
-            <el-input v-model="scope.row.iAfterPrintingLossQty" v-Int size="mini" />
+            <el-input v-model.number="scope.row.iAfterPrintingLossQty" v-Int size="mini" />
           </template>
         </el-table-column>
         <el-table-column prop="iMinLossQty" label="最低总放数（张）">

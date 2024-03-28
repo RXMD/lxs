@@ -179,7 +179,7 @@ export default {
         // 发送上传请求
         axios
           .post(
-            'http://192.168.1.157:5097/Res/Resource/UploadFolder',
+            `${process.env.VUE_APP_BASE_API}/Res/Resource/UploadFolder`,
             formData,
             {
               headers: {
@@ -266,10 +266,9 @@ export default {
     },
     // 网络连接服务端
     ConnectService: function() {
-      // console.log(new signalR)
       console.log('---------------------1、建立网络连接-----------------')
       this.connection = new signalR.HubConnectionBuilder()
-        .withUrl('http://192.168.1.157:5258/Chat')
+        .withUrl(`${process.env.VUE_APP_BASE_API}/Chat`)
         .build()
       console.log(
         '---------------------2、绑定服务端推送消息方法-----------------'
@@ -279,19 +278,19 @@ export default {
       this.connection.on('GetChatList', this.GetChatList)
       this.connection.on('GetMessageHistoryList', this.GetMessageHistoryList)
       this.connection.onclose(async(data) => {
-        console.log(data, 'connection close')
         this.connection.start()
+        this.Login()
       })
       this.connection.start()
     },
 
     // 调用服务端登录
     Login() {
-      console.log(this.userInfo, 'ooooooooooooooo')
+      console.log(this.userInfo, 'ooooooooooooooo', Number(this.userInfo.id), this.userInfo.userName)
       this.connection
         .invoke(
           'Login',
-          this.userInfo.id,
+          Number(this.userInfo.id),
           this.userInfo.userName,
           'token',
           0,
@@ -391,7 +390,7 @@ export default {
 
     // 手动拉取 聊天人列表数据
     PushChatList() {
-      this.connection.invoke('PushChatList', this.userInfo.id, 0).then((a) => {
+      this.connection.invoke('PushChatList', Number(this.userInfo.id), 0).then((a) => {
         console.log(a)
       })
     },

@@ -67,6 +67,9 @@ const mutations = {
     getRouters(asyncRoutes)
   },
   SET_USERINFO: (state, data) => {
+    if (data.id) {
+      data.id = Number(data.id)
+    }
     state.userInfo = data
   },
   SET_INTRODUCTION: (state, introduction) => {

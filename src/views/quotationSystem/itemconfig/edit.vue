@@ -12,7 +12,7 @@
 
     <el-form ref="form" :disabled="titleText == 2" :rules="rules" label-width="80px" size="mini" :model="form">
       <el-form-item label="项目编号" prop="sItemCode">
-        <el-input v-model="form.sItemCode" :disabled="form.uGuid1" placeholder="请输入项目编号" />
+        <el-input v-model="form.sItemCode" :disabled="!!form.uGuid1" placeholder="请输入项目编号" />
       </el-form-item>
 
       <el-form-item label="项目名称" prop="sItemName">

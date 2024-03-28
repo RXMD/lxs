@@ -152,8 +152,10 @@ export default () => {
   Vue.directive('EmptyZero', {
     inserted: function(el, binding) {
       el.addEventListener('change', function(event) {
-        if (!event.target.value.trim()) {
-          event.target.value = '0'
+        if (event.target.value && !isNaN(event.target.value)) {
+          event.target.value = parseFloat(event.target.value) ? parseFloat(event.target.value) : 0
+        } else {
+          event.target.value = 0
         }
       })
     }

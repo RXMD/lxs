@@ -9,7 +9,7 @@ const http = 'http://192.168.1.157:6199'
 gw = 'http://192.168.1.55:5205'
 // create an axios instance
 const service = axios.create({
-  baseURL: http, // url = base url + request url
+  baseURL: process.env.VUE_APP_BASE_API, // url = base url + request url
   // baseURL: process.env.VUE_APP_BASE_API,
   // withCredentials: true, // send cookies when cross-domain requests
   timeout: 5000 // request timeout
@@ -60,9 +60,9 @@ service.interceptors.response.use(
       // 50008: Illegal token; 50012: Other clients logged in; 50014: Token expired;
       if (res.code === 50008 || res.code === 50012 || res.code === 50014) {
         // to re-login
-        MessageBox.confirm('You have been logged out, you can cancel to stay on this page, or log in again', 'Confirm logout', {
-          confirmButtonText: 'Re-Login',
-          cancelButtonText: 'Cancel',
+        MessageBox.confirm('身份信息以过期, 请重新登录', {
+          confirmButtonText: '重新登录',
+          cancelButtonText: '取消',
           type: 'warning'
         }).then(() => {
           store.dispatch('user/resetToken').then(() => {

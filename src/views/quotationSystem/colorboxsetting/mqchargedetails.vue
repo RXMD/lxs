@@ -73,17 +73,17 @@
 
               <el-table-column align="center" prop="dLength" label="长">
                 <template slot-scope="scope">
-                  <el-input v-model.number="scope.row.dLength" v-Empty-Zero v-Float oninput="value=value.replace(/[^0-9.]/g,'')" size="mini" />
+                  <el-input v-model="scope.row.dLength" v-Empty-Zero v-Float oninput="value=value.replace(/[^0-9.]/g,'')"  size="mini"/>
                 </template>
               </el-table-column>
               <el-table-column align="center" prop="dWidth" label="宽">
                 <template slot-scope="scope">
-                  <el-input v-model.number="scope.row.dWidth" v-Empty-Zero v-Float oninput="value=value.replace(/[^0-9.]/g,'')" size="mini" />
+                  <el-input v-model="scope.row.dWidth" v-Empty-Zero v-Float oninput="value=value.replace(/[^0-9.]/g,'')" size="mini"/>
                 </template>
               </el-table-column>
               <el-table-column align="center" prop="dMinAmount" label="最低消费(元)">
                 <template slot-scope="scope">
-                  <el-input v-model.number="scope.row.dMinAmount" v-Empty-Zero v-Float oninput="value=value.replace(/[^0-9.]/g,'')" size="mini" />
+                  <el-input v-model="scope.row.dMinAmount" v-Empty-Zero v-Float oninput="value=value.replace(/[^0-9.]/g,'')" size="mini"/>
                 </template>
               </el-table-column>
 
@@ -95,7 +95,7 @@
                     张内
                   </template>
                   <template slot-scope="scope">
-                    <el-input v-model.number="scope.row.dTemplateIntervalPrice1" v-Empty-Zero v-Float oninput="value=value.replace(/[^0-9.]/g,'')" size="mini" />
+                    <el-input v-model="scope.row.dTemplateIntervalPrice1" v-Empty-Zero v-Float oninput="value=value.replace(/[^0-9.]/g,'')" size="mini"/>
                   </template>
                 </el-table-column>
                 <el-table-column align="center">
@@ -104,18 +104,18 @@
                     张内
                   </template>
                   <template slot-scope="scope">
-                    <el-input v-model.number="scope.row.dTemplateIntervalPrice2" v-Empty-Zero v-Float oninput="value=value.replace(/[^0-9.]/g,'')" size="mini" />
+                    <el-input v-model="scope.row.dTemplateIntervalPrice2" v-Empty-Zero v-Float oninput="value=value.replace(/[^0-9.]/g,'')" size="mini"/>
                   </template>
                 </el-table-column>
                 <el-table-column align="center" :label="tableHeader.iTemplateInterval3 + '以上'">
                   <template slot-scope="scope">
-                    <el-input v-model.number="scope.row.dTemplateIntervalPrice3" v-Empty-Zero v-Float oninput="value=value.replace(/[^0-9.]/g,'')" size="mini" />
+                    <el-input v-model="scope.row.dTemplateIntervalPrice3" v-Empty-Zero v-Float oninput="value=value.replace(/[^0-9.]/g,'')" size="mini"/>
                   </template>
                 </el-table-column>
               </el-table-column>
               <el-table-column align="center" label="调机费（元）">
                 <template slot-scope="scope">
-                  <el-input v-model.number="scope.row.dAdjustAmount" v-Empty-Zero v-Float oninput="value=value.replace(/[^0-9.]/g,'')" size="mini" />
+                  <el-input v-model="scope.row.dAdjustAmount" v-Empty-Zero v-Float oninput="value=value.replace(/[^0-9.]/g,'')" size="mini"/>
                 </template>
               </el-table-column>
 
@@ -160,7 +160,7 @@
                 </el-table-column>
                 <el-table-column align="center" prop="dAmount" label="金额">
                   <template slot-scope="scope">
-                    <el-input v-model.number="scope.row.dAmount" v-Empty-Zero v-Float oninput="value=value.replace(/[^0-9.]/g,'')" size="mini" />
+                    <el-input v-model="scope.row.dAmount" v-Empty-Zero v-Float oninput="value=value.replace(/[^0-9.]/g,'')" size="mini" />
                   </template>
                 </el-table-column>
               </el-table-column>

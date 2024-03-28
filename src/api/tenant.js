@@ -9,7 +9,7 @@ export function getTenantList(data) {
 }
 export function deleteTenant(id) {
   return request({
-    url: `/System/Tenant/DeleteTenant?userId=${id}`,
+    url: `/System/Tenant/DeleteTenant?tenantId=${id}`,
     method: 'post'
   })
 }

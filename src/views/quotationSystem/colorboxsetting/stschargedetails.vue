@@ -38,12 +38,12 @@
               <el-table-column align="center" label="手提绳人工">
                 <el-table-column align="center" prop="dHandRopeArtificialPrice" label="单价">
                   <template slot-scope="scope">
-                    <el-input v-model.number="scope.row.dHandRopeArtificialPrice" v-Empty-Zero v-Float size="mini" oninput="value=value.replace(/[^0-9.]/g,'')" />
+                    <el-input v-model="scope.row.dHandRopeArtificialPrice" v-Empty-Zero v-Float size="mini" oninput="value=value.replace(/[^0-9.]/g,'')" />
                   </template>
                 </el-table-column>
                 <el-table-column align="center" prop="dMinHandRopeArtificialAmount" label="最低消费">
                   <template slot-scope="scope">
-                    <el-input v-model.number="scope.row.dMinHandRopeArtificialAmount" v-Empty-Zero v-Float size="mini" oninput="value=value.replace(/[^0-9.]/g,'')" />
+                    <el-input v-model="scope.row.dMinHandRopeArtificialAmount" v-Empty-Zero v-Float size="mini" oninput="value=value.replace(/[^0-9.]/g,'')" />
                   </template>
                 </el-table-column>
               </el-table-column>
@@ -55,12 +55,12 @@
                 </el-table-column>
                 <el-table-column align="center" prop="dHandRopeMaterialPrice" label="单价">
                   <template slot-scope="scope">
-                    <el-input v-model.number="scope.row.dHandRopeMaterialPrice" v-Empty-Zero v-Float size="mini" oninput="value=value.replace(/[^0-9.]/g,'')" />
+                    <el-input v-model="scope.row.dHandRopeMaterialPrice" v-Empty-Zero v-Float size="mini" oninput="value=value.replace(/[^0-9.]/g,'')" />
                   </template>
                 </el-table-column>
                 <el-table-column align="center" prop="dMinHandRopeMaterialAmount" label="最低消费">
                   <template slot-scope="scope">
-                    <el-input v-model.number="scope.row.dMinHandRopeMaterialAmount" v-Empty-Zero v-Float size="mini" oninput="value=value.replace(/[^0-9.]/g,'')" />
+                    <el-input v-model="scope.row.dMinHandRopeMaterialAmount" v-Empty-Zero v-Float size="mini" oninput="value=value.replace(/[^0-9.]/g,'')" />
                   </template>
                 </el-table-column>
               </el-table-column>

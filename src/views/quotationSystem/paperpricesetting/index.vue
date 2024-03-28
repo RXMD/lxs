@@ -10,7 +10,7 @@
           <el-table-column type="index" align="center" width="50" label="序号" />
           <el-table-column sortable align="center" width="70" prop="iOrder" label="排序" />
           <el-table-column align="center" prop="sPaperName" label="纸张名称" />
-          <el-table-column align="center" prop="sPaperType" label="纸张分类" />
+          <el-table-column align="center" prop="sPaperTypeName" label="纸张分类" />
 
           <el-table-column align="center" prop="bSelfinversion" label="自翻">
             <template slot-scope="scope">

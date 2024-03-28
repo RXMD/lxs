@@ -26,7 +26,7 @@
 
           <el-table-column v-if="tableHeader.iPriceInterval > 1" align="center">
             <template slot-scope="scope">
-              <el-input v-model.number="scope.row.dPriceInterval1" v-Empty-Zero v-Float size="mini" />
+              <el-input v-model="scope.row.dPriceInterval1" v-Empty-Zero v-Float size="mini" />
             </template>
             <template slot="header">
               <input v-model.number="tableHeader.iPriceBetween1" v-Int size="mini" class="small-input w-100 e-input" @change="inputChange">
@@ -35,7 +35,7 @@
           </el-table-column>
           <el-table-column v-if="tableHeader.iPriceInterval > 2" align="center">
             <template slot-scope="scope">
-              <el-input v-model.number="scope.row.dPriceInterval2" v-Empty-Zero v-Float size="mini" />
+              <el-input v-model="scope.row.dPriceInterval2" v-Empty-Zero v-Float size="mini" />
             </template>
             <template slot="header">
               <input v-model.number="tableHeader.iPriceBetween2" v-Int size="mini" class="small-input w-100 e-input" @change="inputChange">
@@ -44,7 +44,7 @@
           </el-table-column>
           <el-table-column v-if="tableHeader.iPriceInterval > 3" align="center">
             <template slot-scope="scope">
-              <el-input v-model.number="scope.row.dPriceInterval3" v-Empty-Zero v-Float size="mini" />
+              <el-input v-model="scope.row.dPriceInterval3" v-Empty-Zero v-Float size="mini" />
             </template>
             <template slot="header">
               <input v-model.number="tableHeader.iPriceBetween3" v-Int size="mini" class="small-input w-100 e-input" @change="inputChange">
@@ -53,7 +53,7 @@
           </el-table-column>
           <el-table-column v-if="tableHeader.iPriceInterval > 4" align="center">
             <template slot-scope="scope">
-              <el-input v-model.number="scope.row.dPriceInterval4" v-Empty-Zero v-Float size="mini" />
+              <el-input v-model="scope.row.dPriceInterval4" v-Empty-Zero v-Float size="mini" />
             </template>
             <template slot="header">
               <input v-model.number="tableHeader.iPriceBetween4" v-Int size="mini" class="small-input w-100 e-input" @change="inputChange">
@@ -78,7 +78,7 @@
                 <el-button type="text" @click="LinkLookDetail(scope.row)">查看收费详情</el-button>
               </p>
 
-              <el-input v-else v-model.number="scope.row.dPriceInterval5" v-Empty-Zero v-Float size="mini" />
+              <el-input v-else v-model="scope.row.dPriceInterval5" v-Empty-Zero v-Float size="mini" />
             </template>
           </el-table-column>
 
@@ -95,7 +95,7 @@
         <el-table-column label="最低消费" align="center">
           <el-table-column label="开机费（元）" align="center">
             <template slot-scope="scope">
-              <el-input v-model.number="scope.row.dStartupAmount" v-Empty-Zero v-Float size="mini" />
+              <el-input v-model="scope.row.dStartupAmount" v-Empty-Zero v-Float size="mini" />
             </template>
           </el-table-column>
         </el-table-column>
@@ -115,7 +115,7 @@
           <template slot-scope="scope">
             <el-input
               v-if="scope.row.sAfterProcessName == '击凸' || scope.row.sAfterProcessName == '击凹'"
-              v-model.number="scope.row.dAdjustAmount"
+              v-model="scope.row.dAdjustAmount"
               v-Empty-Zero
               v-Float
               oninput="value=value.replace(/[^0-9.]/g,'')"
@@ -128,7 +128,7 @@
             <p v-if="scope.row.sAfterProcessName == '击凸' || scope.row.sAfterProcessName == '击凹'" class="d-flex ai-c">
               <span style="width: 75px; text-align: right">模板费</span>
               <el-input
-                v-model.number="scope.row.dTemplateAndMinSpacingAmount"
+                v-model="scope.row.dTemplateAndMinSpacingAmount"
                 v-Empty-Zero
                 v-Float
                 style="width: 70px"
@@ -156,7 +156,7 @@
           <template slot-scope="scope">
             <el-input
               v-if="scope.row.sAfterProcessName == '击凸' || scope.row.sAfterProcessName == '击凹'"
-              v-model.number="scope.row.dTemplateMinAmount"
+              v-model="scope.row.dTemplateMinAmount"
               v-Empty-Zero
               v-Float
               size="mini"

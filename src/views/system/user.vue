@@ -17,7 +17,7 @@
             <el-table-column align="center" prop="eMail" label="邮箱" width="160" />
             <el-table-column align="center" prop="realName" label="真实姓名" width="120" />
             <el-table-column align="center" prop="isMain" :formatter="fmtSpecialEdition" label="是否主账号" />
-            <el-table-column align="center" prop="sexText" label="性别" width="80" />
+            <el-table-column align="center" prop="sex" :formatter="fmtSex" label="性别" width="80" />
             <el-table-column align="center" label="操作" width="300" fixed="right">
               <template slot-scope="scope">
                 <el-button v-if="false" size="mini" type="text" @click="edit(scope.row, 'add')">新增</el-button>
@@ -135,6 +135,9 @@ export default {
           }
         }
       })
+    },
+    fmtSex (row) {
+      return row.sex === 1 ? '男' : row.sex ===  0 ? '女' : ''
     },
     fmtSpecialEdition(row, column, cellValue) {
       return row.isMain ? '主用户' : '子用户'

@@ -41,54 +41,54 @@
               </el-table-column>
               <el-table-column align="center" prop="dPrice" label="材料单价(元/㎡)">
                 <template slot-scope="scope">
-                  <el-input v-model.number="scope.row.dPrice" v-Empty-Zero v-Float oninput="value=value.replace(/[^0-9.]/g,'')" size="mini" />
+                  <el-input v-model="scope.row.dPrice" v-Empty-Zero v-Float oninput="value=value.replace(/[^0-9.]/g,'')" size="mini" />
                 </template>
               </el-table-column>
               <el-table-column align="center" prop="dMinPrice" label="材料每张最低单价(元)">
                 <template slot-scope="scope">
-                  <el-input v-model.number="scope.row.dMinPrice" v-Empty-Zero v-Float oninput="value=value.replace(/[^0-9.]/g,'')" size="mini" />
+                  <el-input v-model="scope.row.dMinPrice" v-Empty-Zero v-Float oninput="value=value.replace(/[^0-9.]/g,'')" size="mini" />
                 </template>
               </el-table-column>
               <el-table-column align="center" prop="dMinAmount" label="材料最低收费(元)">
                 <template slot-scope="scope">
-                  <el-input v-model.number="scope.row.dMinAmount" v-Empty-Zero v-Float oninput="value=value.replace(/[^0-9.]/g,'')" size="mini" />
+                  <el-input v-model="scope.row.dMinAmount" v-Empty-Zero v-Float oninput="value=value.replace(/[^0-9.]/g,'')" size="mini" />
                 </template>
               </el-table-column>
               <el-table-column align="center" label="人工(元/张)">
                 <el-table-column align="center" prop="dArtificialSixAmount" label="六开机">
                   <template slot-scope="scope">
-                    <el-input v-model.number="scope.row.dArtificialSixAmount" v-Empty-Zero v-Float oninput="value=value.replace(/[^0-9.]/g,'')" size="mini" />
+                    <el-input v-model="scope.row.dArtificialSixAmount" v-Empty-Zero v-Float oninput="value=value.replace(/[^0-9.]/g,'')" size="mini" />
                   </template>
                 </el-table-column>
                 <el-table-column align="center" label="四开机">
                   <template slot-scope="scope">
-                    <el-input v-model.number="scope.row.dArtificialFourAmount" v-Empty-Zero v-Float oninput="value=value.replace(/[^0-9.]/g,'')" size="mini" />
+                    <el-input v-model="scope.row.dArtificialFourAmount" v-Empty-Zero v-Float oninput="value=value.replace(/[^0-9.]/g,'')" size="mini" />
                   </template>
                 </el-table-column>
                 <el-table-column align="center" label="对开机">
                   <template slot-scope="scope">
-                    <el-input v-model.number="scope.row.dArtificialTwoAmount" v-Empty-Zero v-Float oninput="value=value.replace(/[^0-9.]/g,'')" size="mini" />
+                    <el-input v-model="scope.row.dArtificialTwoAmount" v-Empty-Zero v-Float oninput="value=value.replace(/[^0-9.]/g,'')" size="mini" />
                   </template>
                 </el-table-column>
                 <el-table-column align="center" label="全开机">
                   <template slot-scope="scope">
-                    <el-input v-model.number="scope.row.dArtificialFullAmount" v-Empty-Zero v-Float oninput="value=value.replace(/[^0-9.]/g,'')" size="mini" />
+                    <el-input v-model="scope.row.dArtificialFullAmount" v-Empty-Zero v-Float oninput="value=value.replace(/[^0-9.]/g,'')" size="mini" />
                   </template>
                 </el-table-column>
               </el-table-column>
               <el-table-column align="center" prop="dMinArtificialAmount" label="人工最低收费(元)">
                 <template slot-scope="scope">
-                  <el-input v-model.number="scope.row.dMinArtificialAmount" v-Empty-Zero v-Float oninput="value=value.replace(/[^0-9.]/g,'')" size="mini" />
+                  <el-input v-model="scope.row.dMinArtificialAmount" v-Empty-Zero v-Float oninput="value=value.replace(/[^0-9.]/g,'')" size="mini" />
                 </template>
               </el-table-column>
               <el-table-column align="center" prop="dFilmAmount" label="菲林费(元/㎡)">
                 <template slot-scope="scope">
-                  <el-input v-model.number="scope.row.dFilmAmount" v-Empty-Zero v-Float oninput="value=value.replace(/[^0-9.]/g,'')" size="mini" />
+                  <el-input v-model="scope.row.dFilmAmount" v-Empty-Zero v-Float oninput="value=value.replace(/[^0-9.]/g,'')" size="mini" />
                 </template>
               </el-table-column>
               <el-table-column align="center" prop="dMinFilmAmount" label="菲林费最低收费(元)	">
                 <template slot-scope="scope">
-                  <el-input v-model.number="scope.row.dMinFilmAmount" v-Empty-Zero v-Float oninput="value=value.replace(/[^0-9.]/g,'')" size="mini" />
+                  <el-input v-model="scope.row.dMinFilmAmount" v-Empty-Zero v-Float oninput="value=value.replace(/[^0-9.]/g,'')" size="mini" />
                 </template>
               </el-table-column>
               <el-table-column align="center" label="操作" width="80" fixed="right">

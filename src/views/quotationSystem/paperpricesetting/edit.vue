@@ -40,7 +40,7 @@
           <el-tab-pane label="纸张参数设置">
             <el-table
               ref="Ele_PaperPriceSetting_Detail"
-              :height="290"
+              :height="200"
               border
               :data="Ele_PaperPriceSetting_Detail"
               tooltip-effect="dark"

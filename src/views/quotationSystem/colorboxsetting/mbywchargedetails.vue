@@ -42,7 +42,7 @@
               <el-table-column align="center" prop="dPrice" label="单价(元/个)">
                 <template slot-scope="scope">
                   <div class="d-flex ai-c">
-                    <el-input v-model.number="scope.row.dPrice" v-Empty-Zero v-Float oninput="value=value.replace(/[^0-9.]/g,'')" size="mini" />
+                    <el-input v-model="scope.row.dPrice" v-Empty-Zero v-Float oninput="value=value.replace(/[^0-9.]/g,'')" size="mini" />
                     <el-select v-model="scope.row.sUnitName" size="mini" style="margin-left: 2px">
                       <el-option value="元/张" />
                       <el-option value="元/印刷㎡" />
@@ -52,22 +52,22 @@
               </el-table-column>
               <el-table-column align="center" prop="dMinStartupAmount" label="最低消费(开机费)（元）">
                 <template slot-scope="scope">
-                  <el-input v-model.number="scope.row.dMinStartupAmount" v-Empty-Zero v-Float oninput="value=value.replace(/[^0-9.]/g,'')" size="mini" />
+                  <el-input v-model="scope.row.dMinStartupAmount" v-Empty-Zero v-Float oninput="value=value.replace(/[^0-9.]/g,'')" size="mini" />
                 </template>
               </el-table-column>
               <el-table-column align="center" prop="dMinPrice" label="每张(个)最低单价（元）">
                 <template slot-scope="scope">
-                  <el-input v-model.number="scope.row.dMinPrice" v-Empty-Zero v-Float oninput="value=value.replace(/[^0-9.]/g,'')" size="mini" />
+                  <el-input v-model="scope.row.dMinPrice" v-Empty-Zero v-Float oninput="value=value.replace(/[^0-9.]/g,'')" size="mini" />
                 </template>
               </el-table-column>
               <el-table-column align="center" prop="dTemplateAmount" label="模板费（元）/平方厘米">
                 <template slot-scope="scope">
-                  <el-input v-model.number="scope.row.dTemplateAmount" v-Empty-Zero v-Float oninput="value=value.replace(/[^0-9.]/g,'')" size="mini" />
+                  <el-input v-model="scope.row.dTemplateAmount" v-Empty-Zero v-Float oninput="value=value.replace(/[^0-9.]/g,'')" size="mini" />
                 </template>
               </el-table-column>
               <el-table-column align="center" prop="dTemplateMinAmount" label="模板费最低收费(元)">
                 <template slot-scope="scope">
-                  <el-input v-model.number="scope.row.dTemplateMinAmount" v-Empty-Zero v-Float oninput="value=value.replace(/[^0-9.]/g,'')" size="mini" />
+                  <el-input v-model="scope.row.dTemplateMinAmount" v-Empty-Zero v-Float oninput="value=value.replace(/[^0-9.]/g,'')" size="mini" />
                 </template>
               </el-table-column>
 

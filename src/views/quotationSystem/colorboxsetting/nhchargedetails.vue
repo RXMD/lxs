@@ -38,7 +38,7 @@
 
               <el-table-column align="center" prop="dPrice" label="单价">
                 <template slot-scope="scope">
-                  <el-input v-model.number="scope.row.dPrice" v-Empty-Zero v-Float class="w-100" oninput="value=value.replace(/[^0-9.]/g,'')" size="mini" />
+                  <el-input v-model="scope.row.dPrice" v-Empty-Zero v-Float class="w-100" oninput="value=value.replace(/[^0-9.]/g,'')" size="mini" />
                 </template>
               </el-table-column>
 
@@ -46,19 +46,19 @@
 
               <el-table-column align="center" prop="dMinAmount" label="最低消费开机费（元）">
                 <template slot-scope="scope">
-                  <el-input v-model.number="scope.row.dMinAmount" v-Empty-Zero v-Float class="w-100" oninput="value=value.replace(/[^0-9.]/g,'')" size="mini" />
+                  <el-input v-model="scope.row.dMinAmount" v-Empty-Zero v-Float class="w-100" oninput="value=value.replace(/[^0-9.]/g,'')" size="mini" />
                 </template>
               </el-table-column>
               <el-table-column align="center" prop="dMinPrice" label="每张(个)最低单价（元）">
                 <template slot-scope="scope">
-                  <el-input v-if="scope.row.sName != '自动扣底(加)'" v-model.number="scope.row.dMinPrice" v-Empty-Zero v-Float class="w-100" oninput="value=value.replace(/[^0-9.]/g,'')" size="mini" />
+                  <el-input v-if="scope.row.sName != '自动扣底(加)'" v-model="scope.row.dMinPrice" v-Empty-Zero v-Float class="w-100" oninput="value=value.replace(/[^0-9.]/g,'')" size="mini" />
                 </template>
               </el-table-column>
               <el-table-column align="center" prop="dMultiplesPrice">
                 <template slot-scope="scope">
                   <div v-if="scope.row.sName != '自动扣底(加)'" class="d-flex ai-c">
                     <span>(长+宽)/2>高时</span>
-                    <el-input v-model.number="scope.row.dMultiplesPrice" v-Empty-Zero v-Float style="flex:1;" oninput="value=value.replace(/[^0-9.]/g,'')" size="mini" />
+                    <el-input v-model="scope.row.dMultiplesPrice" v-Empty-Zero v-Float style="flex:1;" oninput="value=value.replace(/[^0-9.]/g,'')" size="mini" />
                     <span>倍单价</span>
                   </div>
                 </template>
